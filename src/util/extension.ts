@@ -1,5 +1,6 @@
 import { createToken } from './token';
 import { ExtensionManifest } from '../core/models/manifest';
+import { RigExtension } from '../core/models/rig';
 
 export function createExtensionObject(
   manifest: ExtensionManifest,
@@ -9,7 +10,7 @@ export function createExtensionObject(
   ownerID: string,
   channelId: string,
   secret: string,
-  opaqueId: string)
+  opaqueId: string): RigExtension
 {
   return {
     authorName: manifest.author_name,
@@ -18,7 +19,7 @@ export function createExtensionObject(
     iconUrl: manifest.icon_url,
     id: manifest.id + ':' + index,
     name: manifest.name,
-    requestIdentityLink: manifest.request_identity_link,
+    requestIdentity: manifest.request_identity_link,
     sku: manifest.sku,
     state: manifest.state,
     summary: manifest.summary,

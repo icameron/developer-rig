@@ -81,7 +81,7 @@ export const ExtensionForTest = {
   channelId: 'channelId',
 };
 
-export function createViewsForTest(numOfViews: number, type: string, role: string, extras: any) {
+export function createViewsForTest(numOfViews: number, type: string, role: string, extras?: any) {
   let ex = {
     x: 0,
     y: 0,

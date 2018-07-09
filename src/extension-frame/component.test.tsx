@@ -6,11 +6,11 @@ const { ExtensionViewType, ExtensionAnchor, ExtensionMode } = window['extension-
 
 describe('<ExtensionFrame />', () => {
   const setupShallow = setupShallowTest(ExtensionFrame, () => ({
-    className: 'view',
     frameId: '0',
     extension: ExtensionForTest,
     type: ExtensionAnchor.Panel,
     mode: ExtensionMode.Viewer,
+    iframe: '',
   }));
 
   const setupMount = setupMountTest(ExtensionFrame, () => ({
@@ -19,19 +19,21 @@ describe('<ExtensionFrame />', () => {
     extension: ExtensionForTest,
     type: ExtensionAnchor.Panel,
     mode: ExtensionMode.Viewer,
+    iframe: '',
   }));
 
   it('onload postMessages data correctly', () => {
     const { wrapper } = setupMount();
 
-    const mockIframeRef = {
+    const mockIframeRef: any = {
       contentWindow: {
         postMessage: jest.fn(),
       },
     };
 
-    wrapper.instance().iframe = mockIframeRef
-    wrapper.instance().extensionFrameInit();
+    const instance = wrapper.instance() as ExtensionFrame;
+    instance.iframe = mockIframeRef;
+    instance.extensionFrameInit();
     expect(mockIframeRef.contentWindow.postMessage).toHaveBeenCalledWith({
       "action": "extension-frame-init",
       "extension": {
@@ -74,14 +76,14 @@ describe('<ExtensionFrame />', () => {
       type: ExtensionViewType.Mobile
     });
 
-    const mockIframeRef = {
+    const mockIframeRef: any = {
       contentWindow: {
         postMessage: jest.fn(),
       },
     };
-
-    wrapper.instance().iframe = mockIframeRef
-    wrapper.instance().extensionFrameInit();
+    const instance = wrapper.instance() as ExtensionFrame;
+    instance.iframe = mockIframeRef;
+    instance.extensionFrameInit();
     expect(mockIframeRef.contentWindow.postMessage).toHaveBeenCalledWith({
       "action": "extension-frame-init",
       "extension": {

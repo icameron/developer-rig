@@ -10,10 +10,11 @@ import { DivOption } from './div-option';
 import * as closeButton from '../img/close_icon.png';
 import { MobileOrientation, DefaultMobileOrientation, MobileSizes } from '../constants/mobile';
 import { RigExtensionView } from '../core/models/rig';
+import { ExtensionViews } from '../types/extension-coordinator';
 const { ExtensionAnchor, ExtensionPlatform } = window['extension-coordinator'];
 
 export interface ExtensionViewDialogProps {
-  extensionViews: RigExtensionView[],
+  extensionViews: ExtensionViews,
   closeHandler: Function,
   saveHandler: Function,
   show?: boolean,
@@ -30,6 +31,7 @@ interface State {
   identityOption: string;
   orientation: string;
   opaqueId: string;
+  [key: string]: any;
 }
 
 export class ExtensionViewDialog extends React.Component<ExtensionViewDialogProps, State> {
@@ -53,10 +55,10 @@ export class ExtensionViewDialog extends React.Component<ExtensionViewDialogProp
     this.defaultState = this.state;
   }
 
-  onChange = (input) => {
-    const newState = {};
-    newState[input.target.name] = input.target.value;
-    this.setState(newState);
+  private onChange = (input: React.FormEvent<HTMLInputElement>) => {
+    this.setState({
+      [input.currentTarget.name]: input.currentTarget.value,
+    });
   }
 
   componentWillMount() {
@@ -71,7 +73,7 @@ export class ExtensionViewDialog extends React.Component<ExtensionViewDialogProp
   renderExtensionTypeComponents() {
     const allowedAnchors = this._getSupportedViews();
     const onlyOneOption = allowedAnchors.length === 1;
-    return allowedAnchors.map(key => {
+    return allowedAnchors.map((key: string) => {
       return <DivOption
         key={key}
         img={this.state.extensionViewType === key ? ViewTypeImages[key].on : ViewTypeImages[key].off }
@@ -289,10 +291,7 @@ export class ExtensionViewDialog extends React.Component<ExtensionViewDialogProp
   _getSupportedViews() {
     return Object.keys(ExtensionAnchors).filter(anchorS => {
       const anchorC = anchorS.replace(/_\w/g, (m) => m[1].toUpperCase());
-      return this.props.extensionViews[anchorC];
+      return (this.props.extensionViews as { [key: string]: string })[anchorC];
     });
   }
 }
-
-ExtensionViewDialog.propTypes = {
-};

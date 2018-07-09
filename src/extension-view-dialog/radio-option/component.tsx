@@ -7,8 +7,8 @@ export interface RadioOptionProps {
   onChange: (event: React.FormEvent<HTMLInputElement>) => void;
   checked: boolean;
 }
-
-export class RadioOption extends React.Component<RadioOptionProps> {
+type Props = RadioOptionProps & React.HTMLAttributes<HTMLInputElement>
+export class RadioOption extends React.Component<Props> {
   render() {
     return (
       <div className='option-div'>

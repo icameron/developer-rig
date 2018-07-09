@@ -1,4 +1,4 @@
-export const ViewerTypes = {
+export const ViewerTypes: { [key: string]: string; } = {
   Broadcaster: 'Broadcaster',
   LoggedOut: 'Logged-Out Viewer',
   LoggedIn: 'Logged-In Viewer',

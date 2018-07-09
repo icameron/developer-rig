@@ -1,38 +1,18 @@
 import * as React from 'react';
 import { ExtensionFrame } from '../extension-frame';
-import { Extension } from '../types/extension-coordinator';
-import { PositionProperty } from 'csstype';
+import { RigExtension, ViewStyles, FrameSize } from '../core/models/rig';
+import { Position } from '../types/extension-coordinator';
 const { ExtensionMode, ExtensionViewType, getComponentPositionFromView, getComponentSizeFromView } = window['extension-coordinator'];
-
-export interface FrameSize {
-  height: number;
-  width: number;
-}
-
-export interface Position {
-  x: number;
-  y: number;
-}
 
 export interface ExtensionComponentViewProps {
   id: string
-  extension: Extension;
+  extension: RigExtension;
   frameSize: FrameSize;
   position: Position;
   role: string;
 }
 
-export interface ViewStyles extends React.CSSProperties {
-  border: string;
-  position: PositionProperty;
-  left: string;
-  top: string;
-  width: string;
-  height: string;
-  transformOrigin?: string;
-  transform?: string;
-}
-type Props = ExtensionComponentViewProps;
+type Props = ExtensionComponentViewProps & React.HTMLAttributes<HTMLDivElement>;
 
 export class ExtensionComponentView extends React.Component<Props> {
   private computeViewStyles(): ViewStyles {

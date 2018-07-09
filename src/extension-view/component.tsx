@@ -7,23 +7,32 @@ import { CONFIG_VIEW_DIMENSIONS, CONFIG_VIEW_WRAPPER_DIMENSIONS, PANEL_VIEW_DIME
 import * as closeButton from '../img/close_icon.png';
 import { ExtensionComponentView } from '../extension-component-view';
 import { ExtensionMobileView } from '../extension-mobile-view/component';
+import { RigExtension, ViewStyles, FrameSize } from '../core/models/rig';
+import { Position } from '../types/extension-coordinator';
 
 const { ExtensionAnchor, ExtensionMode, ExtensionViewType, ExtensionPlatform} = window['extension-coordinator'];
 
 export interface ExtensionViewProps {
   id: string;
-  extension: object;
+  extension: RigExtension;
   type: string;
   mode: string;
-  role: string;
-  deleteViewHandler: func;
-  openEditViewHandler: func;
-  position: object;
-  frameSize: object;
+  role?: string;
+  linked?: boolean;
+  orientation?: string;
+  deleteViewHandler?: (id: string) => void;
+  openEditViewHandler?: (id: string) => void;
+  position?: Position;
+  frameSize?: FrameSize;
 }
 
 interface State {
   mousedOver: boolean;
+}
+
+interface ExtensionProps {
+  viewStyles: ViewStyles;
+  viewWrapperStyles: ViewStyles;
 }
 
 export class ExtensionView extends React.Component<ExtensionViewProps, State> {
@@ -47,14 +56,14 @@ export class ExtensionView extends React.Component<ExtensionViewProps, State> {
     });
   }
 
-  renderView(extensionProps) {
+  renderView(extensionProps: ExtensionProps) {
     let view = null;
     switch (this.props.type) {
       case ExtensionAnchor.Component:
         view = (<ExtensionComponentView
           id={`component-${this.props.id}`}
+          role={this.props.role}
           className="view"
-          frameId={`frameid-${this.props.id}`}
           extension={this.props.extension}
           frameSize={this.props.frameSize}
           position={this.props.position}
@@ -64,7 +73,7 @@ export class ExtensionView extends React.Component<ExtensionViewProps, State> {
         view = (<ExtensionMobileView
           id={`mobile-${this.props.id}`}
           className="view"
-          frameId={`frameid-${this.props.id}`}
+          role={this.props.role}
           extension={this.props.extension}
           frameSize={this.props.frameSize}
           position={this.props.position}
@@ -98,10 +107,14 @@ export class ExtensionView extends React.Component<ExtensionViewProps, State> {
   }
 
   render() {
-    const extensionProps = {}
+    let extensionProps = {
+      viewStyles: {},
+      viewWrapperStyles: {},
+    };
+
     let panelHeight = PANEL_VIEW_DIMENSIONS.height;
     if (this.props.extension.views.panel && this.props.extension.views.panel.height) {
-      panelHeight = this.props.extension.views.panel.height;
+      panelHeight = this.props.extension.views.panel.height + '';
     }
     switch(this.props.type) {
       case ExtensionAnchor.Panel:

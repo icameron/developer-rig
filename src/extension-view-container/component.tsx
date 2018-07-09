@@ -4,15 +4,16 @@ import { ExtensionViewButton } from '../extension-view-button';
 import { EXTENSION_MODE_TO_VIEW } from '../constants/extension-modes'
 import './component.sass';
 import { RigExtensionView } from '../core/models/rig';
+import { Extension } from '../core/models/extension';
 const { ExtensionMode } = window['extension-coordinator'];
 
 export interface ExtensionViewContainerProps {
   mode: string;
   extensionViews: RigExtensionView[];
-  openEditViewHandler?: Function;
-  deleteExtensionViewHandler: Function;
+  openEditViewHandler?: (id: string) => void;
+  deleteExtensionViewHandler: (id: string) => void;
   openExtensionViewHandler: Function;
-  extension: object;
+  extension: Extension;
 }
 
 export class ExtensionViewContainer extends React.Component<ExtensionViewContainerProps> {
@@ -31,7 +32,7 @@ export class ExtensionViewContainer extends React.Component<ExtensionViewContain
       );
     }
 
-    let extensionViews: RigExtensionView[] = [];
+    let extensionViews: JSX.Element[] = [];
     if (this.props.extensionViews && this.props.extensionViews.length > 0) {
       extensionViews = this.props.extensionViews.map(view => {
         return <ExtensionView

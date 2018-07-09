@@ -1,8 +1,6 @@
 import * as React from 'react';
 import './component.sass';
-import { Extension } from '../types/extension-coordinator';
-import { ExtensionManifest } from '../core/models/manifest';
-
+import { RigExtension } from '../core/models/rig';
 const { ExtensionPlatform, ExtensionViewType} = window['extension-coordinator'];
 
 const IFRAME_CLASS = 'extension-frame';
@@ -11,7 +9,7 @@ const EXTENSION_FRAME_INIT_ACTION = 'extension-frame-init';
 export interface ExtensionFrameProps {
   className: string;
   frameId: string;
-  extension: Extension;
+  extension: RigExtension;
   type: string;
   mode: string;
 }
@@ -19,7 +17,7 @@ export interface ExtensionFrameProps {
 type Props = ExtensionFrameProps;
 
 export class ExtensionFrame extends React.Component<Props> {
-  private iframe: HTMLIFrameElement;
+  public iframe: HTMLIFrameElement;
 
   public componentDidMount() {
     if (this.iframe) {
@@ -43,7 +41,7 @@ export class ExtensionFrame extends React.Component<Props> {
   }
 
   public extensionFrameInit = () => {
-    const extension = {
+    const extension: any = {
       anchor: this.props.type,
       channelId: this.props.extension.channelId,
       loginId: null,
