@@ -50,8 +50,8 @@ describe('<EditViewDialog />', () => {
     expect(inputs.get(0).props.value).toEqual(expectedPosition.x);
     expect(inputs.get(1).props.value).toEqual(expectedPosition.y);
 
-    inputs.first().simulate('change', { 'target': { 'name': 'x', 'value': 50 } });
-    inputs.first().simulate('change', { 'target': { 'name': 'y', 'value': 50 } });
+    inputs.first().simulate('change', { 'currentTarget': { 'name': 'x', 'value': 50 } });
+    inputs.first().simulate('change', { 'currentTarget': { 'name': 'y', 'value': 50 } });
 
     wrapper.update();
     inputs = wrapper.find('div.edit-subcontainer__input > input');
@@ -69,7 +69,7 @@ describe('<EditViewDialog />', () => {
     expect(inputs.get(0).props.checked).toBeTruthy();
     expect(inputs.get(1).props.checked).toBeFalsy();
 
-    inputs.last().simulate('change', { 'target': { 'name': 'orientation', 'value': MobileOrientation.Landscape }});
+    inputs.last().simulate('change', { 'currentTarget': { 'name': 'orientation', 'value': MobileOrientation.Landscape }});
 
     wrapper.update();
 

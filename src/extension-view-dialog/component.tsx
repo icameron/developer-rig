@@ -55,7 +55,7 @@ export class ExtensionViewDialog extends React.Component<ExtensionViewDialogProp
     this.defaultState = this.state;
   }
 
-  private onChange = (input: React.FormEvent<HTMLInputElement>) => {
+  public onChange (input: React.FormEvent<HTMLInputElement>) {
     this.setState({
       [input.currentTarget.name]: input.currentTarget.value,
     });

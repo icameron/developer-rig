@@ -52,7 +52,7 @@ describe('<ExtensionViewDialog />', () => {
 
   it('renders correct identity options when logged in user type is selected', () => {
     const { wrapper } = setupShallow();
-    const instance = wrapper.instance() as RadioOption;
+    const instance = wrapper.instance() as ExtensionViewDialog;
     wrapper.find('RadioOption').forEach((elem) => {
       const diveInstance = elem.dive().instance() as RadioOption;
       if (diveInstance.props.value === ViewerTypes.LoggedIn) {
@@ -60,7 +60,7 @@ describe('<ExtensionViewDialog />', () => {
       }
     });
 
-    instance.props.onChange({
+    instance.onChange({
       currentTarget: {
         name: 'viewerType',
         value: ViewerTypes.LoggedIn,

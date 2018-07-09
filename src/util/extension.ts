@@ -19,7 +19,7 @@ export function createExtensionObject(
     iconUrl: manifest.icon_url,
     id: manifest.id + ':' + index,
     name: manifest.name,
-    requestIdentity: manifest.request_identity_link,
+    requestIdentityLink: manifest.request_identity_link,
     sku: manifest.sku,
     state: manifest.state,
     summary: manifest.summary,

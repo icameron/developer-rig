@@ -52,7 +52,7 @@ export const ExtensionForTest = {
   description: 'description',
   iconUrl: 'icon_url',
   name: 'name',
-  requestIdentity: false,
+  requestIdentityLink: false,
   sku: 'sku',
   state: 'state',
   summary: 'summary',

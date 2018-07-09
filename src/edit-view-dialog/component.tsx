@@ -48,9 +48,9 @@ export class EditViewDialog extends React.Component<Props, State> {
   }
 
   private onChange = (input: React.FormEvent<HTMLInputElement>) => {
-    const newState: State = {};
-    newState[input.currentTarget.name] = input.currentTarget.value;
-    this.setState(newState);
+    this.setState({
+      [input.currentTarget.name]: input.currentTarget.value,
+    });
   }
 
   public componentDidMount() {
