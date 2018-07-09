@@ -42,7 +42,7 @@ ShallowWrapper {
                     refreshConfigurationsHandler={[Function]}
                     show={false}
           />
-          <ExtensionRigConsole />
+          <Console />
 </div>,
       ],
       "className": "rig-container",
@@ -88,7 +88,7 @@ ShallowWrapper {
               refreshConfigurationsHandler={[Function]}
               show={false}
 />,
-            <ExtensionRigConsole />,
+            <Console />,
           ],
         },
         "ref": null,
@@ -171,7 +171,7 @@ ShallowWrapper {
                         refreshConfigurationsHandler={[Function]}
                         show={false}
             />
-            <ExtensionRigConsole />
+            <Console />
 </div>,
         ],
         "className": "rig-container",
@@ -217,7 +217,7 @@ ShallowWrapper {
                 refreshConfigurationsHandler={[Function]}
                 show={false}
 />,
-              <ExtensionRigConsole />,
+              <Console />,
             ],
           },
           "ref": null,
@@ -372,7 +372,7 @@ ShallowWrapper {
                     refreshConfigurationsHandler={[Function]}
                     show={false}
           />
-          <ExtensionRigConsole />
+          <Console />
 </div>,
       ],
       "className": "rig-container",
@@ -468,7 +468,7 @@ ShallowWrapper {
               refreshConfigurationsHandler={[Function]}
               show={false}
 />,
-            <ExtensionRigConsole />,
+            <Console />,
           ],
         },
         "ref": null,
@@ -649,7 +649,7 @@ ShallowWrapper {
                         refreshConfigurationsHandler={[Function]}
                         show={false}
             />
-            <ExtensionRigConsole />
+            <Console />
 </div>,
         ],
         "className": "rig-container",
@@ -745,7 +745,7 @@ ShallowWrapper {
                 refreshConfigurationsHandler={[Function]}
                 show={false}
 />,
-              <ExtensionRigConsole />,
+              <Console />,
             ],
           },
           "ref": null,

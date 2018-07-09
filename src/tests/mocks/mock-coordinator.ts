@@ -18,6 +18,16 @@ export function newMockCoordinator(): typeof window['extension-coordinator'] {
     Component: 'component',
   } as typeof coordinator.ExtensionAnchor;
 
+  coordinator.ExtensionViewType = {
+    Component: 'component',
+    Config: 'config',
+    Hidden: 'hidden',
+    LiveConfig: 'liveConfig',
+    Mobile: 'mobile',
+    Panel: 'panel',
+    VideoOverlay: 'videoOverlay',
+  } as typeof coordinator.ExtensionViewType;
+
   coordinator.getComponentPositionFromView = () => ({
     x: 20,
     y: 20,
