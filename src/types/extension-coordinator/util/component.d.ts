@@ -1,8 +1,8 @@
 export interface ComponentViewSizeProps {
-    aspectWidth: number;
-    aspectHeight: number;
-    zoom: boolean;
-    zoomPixels: number;
+    aspectWidth?: number;
+    aspectHeight?: number;
+    zoom?: boolean;
+    zoomPixels?: number;
 }
 export interface ComponentSizingInfo {
     width: number;

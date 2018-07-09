@@ -1,12 +1,22 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import { ExtensionView } from '../extension-view';
 import { ExtensionViewButton } from '../extension-view-button';
 import { EXTENSION_MODE_TO_VIEW } from '../constants/extension-modes'
 import './component.sass';
+import { RigExtensionView } from '../core/models/rig';
+import { Extension } from '../core/models/extension';
 const { ExtensionMode } = window['extension-coordinator'];
 
-export class ExtensionViewContainer extends Component {
+export interface ExtensionViewContainerProps {
+  mode: string;
+  extensionViews: RigExtensionView[];
+  openEditViewHandler?: (id: string) => void;
+  deleteExtensionViewHandler: (id: string) => void;
+  openExtensionViewHandler: Function;
+  extension: Extension;
+}
+
+export class ExtensionViewContainer extends React.Component<ExtensionViewContainerProps> {
   openExtensionViewDialog = () => {
     this.props.openExtensionViewHandler();
   }
@@ -22,7 +32,7 @@ export class ExtensionViewContainer extends Component {
       );
     }
 
-    let extensionViews = [];
+    let extensionViews: JSX.Element[] = [];
     if (this.props.extensionViews && this.props.extensionViews.length > 0) {
       extensionViews = this.props.extensionViews.map(view => {
         return <ExtensionView
@@ -54,13 +64,4 @@ export class ExtensionViewContainer extends Component {
       </div>
     );
   }
-}
-
-ExtensionViewContainer.propTypes = {
-  mode: PropTypes.string.isRequired,
-  extensionViews: PropTypes.array.isRequired,
-  openEditViewHandler: PropTypes.func,
-  deleteExtensionViewHandler: PropTypes.func.isRequired,
-  openExtensionViewHandler: PropTypes.func.isRequired,
-  extension: PropTypes.object.isRequired,
 }

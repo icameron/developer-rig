@@ -1,29 +1,40 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import { ExtensionFrame } from '../extension-frame';
 import { MobileOrientation } from '../constants/mobile';
+import { ViewStyles, RigExtension, FrameSize } from '../core/models/rig';
+import { Position } from '../types/extension-coordinator';
 const { ExtensionMode, ExtensionViewType } = window['extension-coordinator'];
 
 const ViewBackgroundColor = '#322F37';
 const AbsolutePosition = 'absolute';
 
-export class ExtensionMobileView extends Component {
-  computeFrameStyles() {
-    let frameStyles;
+export interface ExtensionMobileViewProps {
+  id: string;
+  orientation: string;
+  extension: RigExtension;
+  frameSize: FrameSize;
+  position: Position
+  role: string;
+}
+type Props = ExtensionMobileViewProps & React.HTMLAttributes<HTMLDivElement>;
+
+export class ExtensionMobileView extends React.Component<Props> {
+  computeFrameStyles(): ViewStyles {
+    let frameStyles: ViewStyles;
 
     if (this.props.orientation === MobileOrientation.Portrait) {
       const height = Math.floor(this.props.frameSize.height * 0.65);
       frameStyles = {
         width: `${this.props.frameSize.width}px`,
         height: `${height}px`,
-        bottom: 0
+        bottom: '0'
       }
     } else {
       const width = Math.floor(this.props.frameSize.height * 0.28);
       frameStyles = {
         width: `${width}px`,
         height: `${this.props.frameSize.width}px`,
-        right: 0
+        right: '0'
       }
     }
 
@@ -32,7 +43,7 @@ export class ExtensionMobileView extends Component {
   }
 
   computeViewStyles() {
-    let viewStyles;
+    let viewStyles: ViewStyles;
     if (this.props.orientation === MobileOrientation.Portrait) {
       viewStyles = {
         width: this.props.frameSize.width + 'px',
@@ -66,12 +77,3 @@ export class ExtensionMobileView extends Component {
     );
   }
 }
-
-ExtensionMobileView.propTypes = {
-  id: PropTypes.string.isRequired,
-  orientation: PropTypes.string.isRequired,
-  extension: PropTypes.object.isRequired,
-  frameSize: PropTypes.object.isRequired,
-  position: PropTypes.object.isRequired,
-  role: PropTypes.string,
-};

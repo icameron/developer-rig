@@ -13,7 +13,7 @@ ShallowWrapper {
             "iconUrl": "icon_url",
             "id": "id",
             "name": "name",
-            "requestIdentity": false,
+            "requestIdentityLink": false,
             "sku": "sku",
             "state": "state",
             "summary": "summary",
@@ -76,7 +76,7 @@ ShallowWrapper {
       "children": <div
         style={
                 Object {
-                        "bottom": 0,
+                        "bottom": "0",
                         "height": "65px",
                         "position": "absolute",
                         "width": "100px",
@@ -93,7 +93,7 @@ ShallowWrapper {
                                 "iconUrl": "icon_url",
                                 "id": "id",
                                 "name": "name",
-                                "requestIdentity": false,
+                                "requestIdentityLink": false,
                                 "sku": "sku",
                                 "state": "state",
                                 "summary": "summary",
@@ -153,7 +153,7 @@ ShallowWrapper {
                               "iconUrl": "icon_url",
                               "id": "id",
                               "name": "name",
-                              "requestIdentity": false,
+                              "requestIdentityLink": false,
                               "sku": "sku",
                               "state": "state",
                               "summary": "summary",
@@ -190,7 +190,7 @@ ShallowWrapper {
           type="mobile"
 />,
         "style": Object {
-          "bottom": 0,
+          "bottom": "0",
           "height": "65px",
           "position": "absolute",
           "width": "100px",
@@ -210,7 +210,7 @@ ShallowWrapper {
             "iconUrl": "icon_url",
             "id": "id",
             "name": "name",
-            "requestIdentity": false,
+            "requestIdentityLink": false,
             "sku": "sku",
             "state": "state",
             "summary": "summary",
@@ -262,7 +262,7 @@ ShallowWrapper {
         "children": <div
           style={
                     Object {
-                              "bottom": 0,
+                              "bottom": "0",
                               "height": "65px",
                               "position": "absolute",
                               "width": "100px",
@@ -279,7 +279,7 @@ ShallowWrapper {
                                         "iconUrl": "icon_url",
                                         "id": "id",
                                         "name": "name",
-                                        "requestIdentity": false,
+                                        "requestIdentityLink": false,
                                         "sku": "sku",
                                         "state": "state",
                                         "summary": "summary",
@@ -339,7 +339,7 @@ ShallowWrapper {
                                     "iconUrl": "icon_url",
                                     "id": "id",
                                     "name": "name",
-                                    "requestIdentity": false,
+                                    "requestIdentityLink": false,
                                     "sku": "sku",
                                     "state": "state",
                                     "summary": "summary",
@@ -376,7 +376,7 @@ ShallowWrapper {
             type="mobile"
 />,
           "style": Object {
-            "bottom": 0,
+            "bottom": "0",
             "height": "65px",
             "position": "absolute",
             "width": "100px",
@@ -396,7 +396,7 @@ ShallowWrapper {
               "iconUrl": "icon_url",
               "id": "id",
               "name": "name",
-              "requestIdentity": false,
+              "requestIdentityLink": false,
               "sku": "sku",
               "state": "state",
               "summary": "summary",

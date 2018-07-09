@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import './component.sass';
 
-export class RadioOption extends Component {
+export interface RadioOptionProps {
+  name: string;
+  value: string;
+  onChange: (event: React.FormEvent<HTMLInputElement>) => void;
+  checked: boolean;
+}
+type Props = RadioOptionProps & React.HTMLAttributes<HTMLInputElement>
+export class RadioOption extends React.Component<Props> {
   render() {
     return (
       <div className='option-div'>
@@ -13,11 +19,4 @@ export class RadioOption extends Component {
       </div>
     )
   }
-}
-
-RadioOption.propTypes = {
-  name: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  checked: PropTypes.bool
 }

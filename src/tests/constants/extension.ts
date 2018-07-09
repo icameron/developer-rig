@@ -52,7 +52,7 @@ export const ExtensionForTest = {
   description: 'description',
   iconUrl: 'icon_url',
   name: 'name',
-  requestIdentity: false,
+  requestIdentityLink: false,
   sku: 'sku',
   state: 'state',
   summary: 'summary',
@@ -81,7 +81,7 @@ export const ExtensionForTest = {
   channelId: 'channelId',
 };
 
-export function createViewsForTest(numOfViews: number, type: string, role: string, extras: any) {
+export function createViewsForTest(numOfViews: number, type: string, role: string, extras?: any) {
   let ex = {
     x: 0,
     y: 0,

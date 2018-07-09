@@ -8,7 +8,8 @@ import * as mobile from '../img/mobile.png';
 import * as mobileOff from '../img/mobileOff.png';
 const { ExtensionAnchor, ExtensionPlatform } = window['extension-coordinator'];
 
-export const ViewTypeImages = {
+
+export const ViewTypeImages: {[key: string]: { on: string; off: string;}} = {
   [ExtensionAnchor.Overlay]: { on: overlay, off: overlayOff },
   [ExtensionAnchor.Panel]: { on: panel, off: panelOff },
   [ExtensionAnchor.Component]: { on: component, off: componentOff },

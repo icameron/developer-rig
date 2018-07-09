@@ -1,15 +1,33 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import closeButton from '../img/close_icon.png';
+import * as React from 'react';
+import * as closeButton from '../img/close_icon.png';
 import './component.sass';
 import { RadioOption } from '../extension-view-dialog/radio-option';
 import { DefaultMobileOrientation } from '../constants/mobile';
 import { MobileOrientation} from '../constants/mobile';
+import { RigExtensionView } from '../core/models/rig';
 const { ExtensionViewType } = window['extension-coordinator'];
 
-export class EditViewDialog extends Component {
-  constructor(args) {
-    super(args);
+export interface EditViewDialogProps {
+  show: boolean;
+  idToEdit: string;
+  views: Array<RigExtensionView>;
+  closeHandler: () => void;
+  saveViewHandler: (newView: RigExtensionView) => void;
+}
+
+interface State {
+  x?: number;
+  y?: number;
+  orientation?: string;
+  type?: string;
+  [key: string]: any;
+}
+
+type Props = EditViewDialogProps;
+
+export class EditViewDialog extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
     this.state = {
       x: 0,
       y: 0,
@@ -18,20 +36,25 @@ export class EditViewDialog extends Component {
     }
   }
 
-  renderOrientationComponents() {
+  private renderOrientationComponents() {
     return Object.keys(MobileOrientation).map(option => {
-      return <RadioOption key={option} name="orientation" value={MobileOrientation[option]} onChange={this.onChange} checked={option === this.state.orientation}/>
+      return <RadioOption
+        key={option}
+        name='orientation'
+        value={MobileOrientation[option]}
+        onChange={this.onChange}
+        checked={option === this.state.orientation} />
     });
   }
 
-  onChange = (input) => {
-    const newState = {};
-    newState[input.target.name] = input.target.value;
-    this.setState(newState);
+  private onChange = (input: React.FormEvent<HTMLInputElement>) => {
+    this.setState({
+      [input.currentTarget.name]: input.currentTarget.value,
+    });
   }
 
-  componentDidMount() {
-    this.props.views.forEach(element => {
+  public componentDidMount() {
+    this.props.views.forEach((element) => {
       if (element.id === this.props.idToEdit) {
         this.setState({
           x: element.x,
@@ -114,11 +137,3 @@ export class EditViewDialog extends Component {
     );
   }
 }
-
-EditViewDialog.propTypes = {
-  show: PropTypes.bool.isRequired,
-  idToEdit: PropTypes.string.isRequired,
-  views: PropTypes.array.isRequired,
-  closeHandler: PropTypes.func.isRequired,
-  saveViewHandler: PropTypes.func.isRequired,
-};

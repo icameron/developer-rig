@@ -6,11 +6,11 @@ const { ExtensionViewType, ExtensionAnchor, ExtensionMode } = window['extension-
 
 describe('<ExtensionFrame />', () => {
   const setupShallow = setupShallowTest(ExtensionFrame, () => ({
-    className: 'view',
     frameId: '0',
     extension: ExtensionForTest,
     type: ExtensionAnchor.Panel,
     mode: ExtensionMode.Viewer,
+    iframe: '',
   }));
 
   const setupMount = setupMountTest(ExtensionFrame, () => ({
@@ -19,27 +19,21 @@ describe('<ExtensionFrame />', () => {
     extension: ExtensionForTest,
     type: ExtensionAnchor.Panel,
     mode: ExtensionMode.Viewer,
+    iframe: '',
   }));
-
-  it('prevents the default when double clicked', () => {
-    const mockEvent = {};
-    mockEvent.preventDefault = jest.fn();
-    const { wrapper } = setupShallow();
-    wrapper.instance()._onFrameDoubleClick(mockEvent);
-    expect(mockEvent.preventDefault).toHaveBeenCalled();
-  });
 
   it('onload postMessages data correctly', () => {
     const { wrapper } = setupMount();
 
-    const mockIframeRef = {
+    const mockIframeRef: any = {
       contentWindow: {
         postMessage: jest.fn(),
       },
     };
 
-    wrapper.instance().iframe = mockIframeRef
-    wrapper.instance()._extensionFrameInit();
+    const instance = wrapper.instance() as ExtensionFrame;
+    instance.iframe = mockIframeRef;
+    instance.extensionFrameInit();
     expect(mockIframeRef.contentWindow.postMessage).toHaveBeenCalledWith({
       "action": "extension-frame-init",
       "extension": {
@@ -52,7 +46,7 @@ describe('<ExtensionFrame />', () => {
           "iconUrl": "icon_url",
           "id": "id",
           "name": "name",
-          "requestIdentity": false,
+          "requestIdentityLink": false,
           "sku": "sku",
           "state": "state",
           "summary": "summary",
@@ -82,14 +76,14 @@ describe('<ExtensionFrame />', () => {
       type: ExtensionViewType.Mobile
     });
 
-    const mockIframeRef = {
+    const mockIframeRef: any = {
       contentWindow: {
         postMessage: jest.fn(),
       },
     };
-
-    wrapper.instance().iframe = mockIframeRef
-    wrapper.instance()._extensionFrameInit();
+    const instance = wrapper.instance() as ExtensionFrame;
+    instance.iframe = mockIframeRef;
+    instance.extensionFrameInit();
     expect(mockIframeRef.contentWindow.postMessage).toHaveBeenCalledWith({
       "action": "extension-frame-init",
       "extension": {
@@ -102,7 +96,7 @@ describe('<ExtensionFrame />', () => {
           "iconUrl": "icon_url",
           "id": "id",
           "name": "name",
-          "requestIdentity": false,
+          "requestIdentityLink": false,
           "sku": "sku",
           "state": "state",
           "summary": "summary",

@@ -5,7 +5,6 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ExtensionFrame
-    className="view"
     extension={
         Object {
             "authorName": "test",
@@ -14,7 +13,7 @@ ShallowWrapper {
             "iconUrl": "icon_url",
             "id": "id",
             "name": "name",
-            "requestIdentity": false,
+            "requestIdentityLink": false,
             "sku": "sku",
             "state": "state",
             "summary": "summary",
@@ -47,6 +46,7 @@ ShallowWrapper {
           }
     }
     frameId="0"
+    iframe=""
     mode="config"
     type="config"
 />,
@@ -102,7 +102,6 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ExtensionFrame
-    className="view"
     extension={
         Object {
             "authorName": "test",
@@ -111,7 +110,7 @@ ShallowWrapper {
             "iconUrl": "icon_url",
             "id": "id",
             "name": "name",
-            "requestIdentity": false,
+            "requestIdentityLink": false,
             "sku": "sku",
             "state": "state",
             "summary": "summary",
@@ -144,6 +143,7 @@ ShallowWrapper {
           }
     }
     frameId="0"
+    iframe=""
     mode="dashboard"
     type="liveConfig"
 />,
@@ -199,7 +199,6 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ExtensionFrame
-    className="view"
     extension={
         Object {
             "authorName": "test",
@@ -208,7 +207,7 @@ ShallowWrapper {
             "iconUrl": "icon_url",
             "id": "id",
             "name": "name",
-            "requestIdentity": false,
+            "requestIdentityLink": false,
             "sku": "sku",
             "state": "state",
             "summary": "summary",
@@ -241,6 +240,7 @@ ShallowWrapper {
           }
     }
     frameId="0"
+    iframe=""
     mode="dashboard"
     type="liveConfig"
 />,
@@ -296,7 +296,6 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ExtensionFrame
-    className="view"
     extension={
         Object {
             "authorName": "test",
@@ -305,7 +304,7 @@ ShallowWrapper {
             "iconUrl": "icon_url",
             "id": "id",
             "name": "name",
-            "requestIdentity": false,
+            "requestIdentityLink": false,
             "sku": "sku",
             "state": "state",
             "summary": "summary",
@@ -338,6 +337,7 @@ ShallowWrapper {
           }
     }
     frameId="0"
+    iframe=""
     mode="viewer"
     type="panel"
 />,
@@ -393,7 +393,6 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ExtensionFrame
-    className="view"
     extension={
         Object {
             "authorName": "test",
@@ -402,7 +401,7 @@ ShallowWrapper {
             "iconUrl": "icon_url",
             "id": "id",
             "name": "name",
-            "requestIdentity": false,
+            "requestIdentityLink": false,
             "sku": "sku",
             "state": "state",
             "summary": "summary",
@@ -435,6 +434,7 @@ ShallowWrapper {
           }
     }
     frameId="0"
+    iframe=""
     mode="viewer"
     type="video_overlay"
 />,
@@ -490,7 +490,6 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ExtensionFrame
-    className="view"
     extension={
         Object {
             "authorName": "test",
@@ -499,7 +498,7 @@ ShallowWrapper {
             "iconUrl": "icon_url",
             "id": "id",
             "name": "name",
-            "requestIdentity": false,
+            "requestIdentityLink": false,
             "sku": "sku",
             "state": "state",
             "summary": "summary",
@@ -532,6 +531,7 @@ ShallowWrapper {
           }
     }
     frameId="0"
+    iframe=""
     mode="viewer"
     type="video_overlay"
 />,

@@ -33,7 +33,7 @@ export interface Extension {
   description: string;
   iconUrl: string;
   name: string;
-  requestIdentity: boolean
+  requestIdentityLink: boolean
   sku: string;
   state: string;
   summary: string;

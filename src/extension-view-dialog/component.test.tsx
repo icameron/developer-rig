@@ -3,6 +3,8 @@ import { ExtensionViewDialog } from './component';
 import { DEFAULT_EXTENSION_TYPE } from '../constants/extension-types'
 import { DEFAULT_OVERLAY_SIZE } from '../constants/overlay-sizes'
 import { ViewerTypes, DEFAULT_VIEWER_TYPE } from '../constants/viewer-types'
+import { RadioOption } from './radio-option';
+import { InputHTMLAttributes } from 'react';
 const { ExtensionViewType } = window['extension-coordinator'];
 
 describe('<ExtensionViewDialog />', () => {
@@ -50,17 +52,21 @@ describe('<ExtensionViewDialog />', () => {
 
   it('renders correct identity options when logged in user type is selected', () => {
     const { wrapper } = setupShallow();
+    const instance = wrapper.instance() as ExtensionViewDialog;
     wrapper.find('RadioOption').forEach((elem) => {
-      if (elem.dive().instance().props.value === ViewerTypes.LoggedIn) {
+      const diveInstance = elem.dive().instance() as RadioOption;
+      if (diveInstance.props.value === ViewerTypes.LoggedIn) {
         elem.simulate('click');
       }
     });
-    wrapper.instance().onChange({
-      target: {
+
+    instance.onChange({
+      currentTarget: {
         name: 'viewerType',
         value: ViewerTypes.LoggedIn,
       }
-    })
+    } as React.FormEvent<HTMLInputElement>)
+
     wrapper.update();
     expect(wrapper.find('RadioOption[name="identityOption"]')).toHaveLength(2);
   });
