@@ -36,7 +36,7 @@ export function mockFetchForUserInfo() {
 }
 
 export function mockFetchError() {
-  return Promise.resolve({ ok: false });
+  return Promise.reject('Fake error');
 }
 
 export function mockFetchProducts() {

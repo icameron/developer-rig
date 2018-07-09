@@ -32,13 +32,9 @@ export class ProductTableComponent extends React.Component<Props>{
 
   public componentDidMount() {
     const { clientId, token, loadProductsSuccess, loadProductsFailure } = this.props;
-    fetchProducts(
-      'api.twitch.tv',
-      clientId,
-      token,
-      loadProductsSuccess,
-      loadProductsFailure,
-    );
+    fetchProducts('api.twitch.tv', clientId, token)
+      .then(loadProductsSuccess)
+      .catch(loadProductsFailure);
   }
 
   public handleValueChange(index: number, event: React.FormEvent<HTMLInputElement> ) {
@@ -63,15 +59,9 @@ export class ProductTableComponent extends React.Component<Props>{
     const { clientId, token, saveProductsSuccess, saveProductsFailure } = this.props;
     this.props.products.forEach((product, index) => {
       if (product.dirty) {
-        saveProduct(
-          'api.twitch.tv',
-          clientId,
-          token,
-          product,
-          index,
-          saveProductsSuccess,
-          saveProductsFailure,
-        );
+        saveProduct('api.twitch.tv', clientId, token, product, index)
+          .then(saveProductsSuccess)
+          .catch(saveProductsFailure as any)
       }
     });
   }

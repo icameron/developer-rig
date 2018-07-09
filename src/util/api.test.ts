@@ -28,13 +28,12 @@ describe('api', () => {
     });
 
     it('on error should be fired ', async function () {
+      expect.assertions(1);
       const onError = jest.fn();
       globalAny.fetch = jest.fn().mockImplementation(mockFetchError);
-      try {
-        const data = await fetchManifest('127.0.0.1:8080', 'clientId', '', '', '', '');
-      } catch (error) {
+      fetchManifest('127.0.0.1:8080', 'clientId', '', '', '', '').catch((error) => {
         expect(error).toEqual('Missing configurations for rig: EXT_VERSION,EXT_CHANNEL,EXT_SECRET');
-      }
+      });
     });
   })
 
@@ -53,17 +52,19 @@ describe('api', () => {
     beforeEach(() => {
       globalAny.fetch = jest.fn().mockImplementation(mockFetchForUserInfo);
     });
+
     it('should return data', async function () {
-      await fetchUserInfo('127.0.0.1:8080', 'token', (data: any) => {
-        expect(data).toBeDefined();
-      }, () => { });
+      const data = await fetchUserInfo('127.0.0.1:8080', 'token');
+      expect(data).toBeDefined();
     });
 
     it('on error should fire', async function () {
-      const onError = jest.fn()
+      expect.assertions(1);
+
       globalAny.fetch = jest.fn().mockImplementation(mockFetchError);
-      await fetchUserInfo('127.0.0.1:8080', 'token', () => { }, onError);
-      expect(onError).toHaveBeenCalled();
+      fetchUserInfo('127.0.0.1:8080', 'token').catch((error) => {
+        expect(error).toEqual('Fake error');
+      });
     });
   });
 
@@ -103,24 +104,22 @@ describe('api', () => {
     });
 
     it('should return products', async function () {
-      await fetchProducts('127.0.0.1:8080', 'clientId', '', (products: Product[]) => {
-        expect(products).toBeDefined();
-      }, jest.fn());
+      const products = await fetchProducts('127.0.0.1:8080', 'clientId', '');
+      expect(products).toBeDefined();
     });
 
     it('should serialize products correctly', async function () {
-      await fetchProducts('127.0.0.1:8080', 'clientId', '', (products: Product[]) => {
-        expect(products).toHaveLength(2);
-        products.forEach(product => {
-          expect(product).toMatchObject({
-            sku: expect.any(String),
-            displayName: expect.any(String),
-            amount: expect.stringMatching(/[1-9]\d*/),
-            inDevelopment: expect.stringMatching(/true|false/),
-            broadcast: expect.stringMatching(/true|false/)
-          });
+      const products = await fetchProducts('127.0.0.1:8080', 'clientId', '')
+      expect(products).toHaveLength(2);
+      products.forEach((product: Product) => {
+        expect(product).toMatchObject({
+          sku: expect.any(String),
+          displayName: expect.any(String),
+          amount: expect.stringMatching(/[1-9]\d*/),
+          inDevelopment: expect.stringMatching(/true|false/),
+          broadcast: expect.stringMatching(/true|false/)
         });
-      }, jest.fn());
+      });
     });
   });
 });

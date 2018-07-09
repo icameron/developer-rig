@@ -156,7 +156,7 @@ export function fetchManifest(host: string, clientId: string, username: string, 
   });
 }
 
-export function fetchUserInfo(host: string, accessToken: string, onSuccess: Function, onError: Function) {
+export function fetchUserInfo(host: string, accessToken: string) {
   const api = 'https://' + host + '/helix/users';
   return fetch(api, {
     method: 'GET',
@@ -167,19 +167,17 @@ export function fetchUserInfo(host: string, accessToken: string, onSuccess: Func
     .then(respJson => {
       const data = respJson.data;
       if (!data && data.length === 0) {
-        onError('Unable to get user data for token: ', accessToken);
-        return null;
+        return Promise.reject(`Unable to get user data for token: ${accessToken}`);
       }
-      onSuccess(data[0]);
-    }).catch(error => {
-      onError(error);
+
+      return Promise.resolve(data[0]);
     });
 }
 
-export function fetchProducts(host: string, clientId: string, token: string, onSuccess: Function, onError: Function) {
+export function fetchProducts(host: string, clientId: string, token: string) {
   const api = 'https://' + host + '/v5/bits/extensions/twitch.ext.' + clientId + '/products?includeAll=true';
 
-  fetch(api, {
+  return fetch(api, {
     method: 'GET',
     headers: {
       'Accept': 'application/vnd.twitchtv.v5+json',
@@ -191,14 +189,14 @@ export function fetchProducts(host: string, clientId: string, token: string, onS
   }).then(response => response.json())
     .then(respJson => {
       if (respJson.error) {
-        onError(respJson.message);
-        return null;
+        return Promise.reject(respJson.message);
       }
+
       const products = respJson.products;
       if (!products) {
-        onError('Unable to get products for clientId: ' + clientId);
-        return null;
+        return Promise.reject('Unable to get products for clientId: ' + clientId);
       }
+
       const serializedProducts = products.map((p: DeserializedProduct) => {
         let product = {
           sku: p.sku || '',
@@ -211,13 +209,12 @@ export function fetchProducts(host: string, clientId: string, token: string, onS
 
         return product;
       });
-      onSuccess(serializedProducts);
-    }).catch(error => {
-      onError(error);
+
+      return Promise.resolve(serializedProducts);
     });
 }
 
-export function saveProduct(host: string, clientId: string, token: string, product: Product, index: number, onSuccess: Function, onError: Function) {
+export function saveProduct(host: string, clientId: string, token: string, product: Product, index: number) {
   const api = 'https://' + host + '/v5/bits/extensions/twitch.ext.' + clientId + '/products/put';
   const deserializedProduct = {
     domain: 'twitch.ext.' + clientId,
@@ -232,7 +229,7 @@ export function saveProduct(host: string, clientId: string, token: string, produ
     expiration: product.deprecated ? new Date(Date.now()).toISOString() : null
   };
 
-  fetch(api, {
+  return fetch(api, {
     method: 'POST',
     body: JSON.stringify({ product: deserializedProduct }),
     headers: {
@@ -243,14 +240,11 @@ export function saveProduct(host: string, clientId: string, token: string, produ
     },
     referrer: 'Twitch Developer Rig',
   }).then(response => response.json())
-    .then(respJson => {
-      onSuccess(index);
-    }).catch(error => {
-      onError(index, error);
-    });
+    .then(() => index)
+    .catch((error) => ({ index, error }));
 }
 
-export function fetchNewRelease(onSuccess: Function, onError: Function) {
+export function fetchNewRelease() {
   const api = 'https://api.github.com/repos/twitchdev/developer-rig/releases/latest';
   return fetch(api, {
     method: 'GET',
@@ -262,15 +256,12 @@ export function fetchNewRelease(onSuccess: Function, onError: Function) {
       const tagName = respJson.tag_name;
       const zipUrl = respJson.assets[0].browser_download_url;
       if (tagName && zipUrl) {
-        onSuccess(tagName, zipUrl);
-      } else {
-        throw new Error('Cannot get GitHub developer rig latest release');
+        return Promise.resolve({
+          tagName,
+          zipUrl
+        });
       }
-    }).catch(error => {
-      if (onError) {
-        onError(error);
-      } else {
-        console.error(error);
-      }
+
+      return Promise.reject(new Error('Cannot get GitHub developer rig latest release'));
     });
 }
