@@ -21,14 +21,6 @@ describe('<ExtensionFrame />', () => {
     mode: ExtensionMode.Viewer,
   }));
 
-  it('prevents the default when double clicked', () => {
-    const mockEvent = {};
-    mockEvent.preventDefault = jest.fn();
-    const { wrapper } = setupShallow();
-    wrapper.instance()._onFrameDoubleClick(mockEvent);
-    expect(mockEvent.preventDefault).toHaveBeenCalled();
-  });
-
   it('onload postMessages data correctly', () => {
     const { wrapper } = setupMount();
 
@@ -39,7 +31,7 @@ describe('<ExtensionFrame />', () => {
     };
 
     wrapper.instance().iframe = mockIframeRef
-    wrapper.instance()._extensionFrameInit();
+    wrapper.instance().extensionFrameInit();
     expect(mockIframeRef.contentWindow.postMessage).toHaveBeenCalledWith({
       "action": "extension-frame-init",
       "extension": {
@@ -89,7 +81,7 @@ describe('<ExtensionFrame />', () => {
     };
 
     wrapper.instance().iframe = mockIframeRef
-    wrapper.instance()._extensionFrameInit();
+    wrapper.instance().extensionFrameInit();
     expect(mockIframeRef.contentWindow.postMessage).toHaveBeenCalledWith({
       "action": "extension-frame-init",
       "extension": {

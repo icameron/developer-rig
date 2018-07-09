@@ -1,10 +1,41 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import { ExtensionFrame } from '../extension-frame';
+import { Extension } from '../types/extension-coordinator';
+import { PositionProperty } from 'csstype';
 const { ExtensionMode, ExtensionViewType, getComponentPositionFromView, getComponentSizeFromView } = window['extension-coordinator'];
 
-export class ExtensionComponentView extends Component {
-  computeViewStyles() {
+export interface FrameSize {
+  height: number;
+  width: number;
+}
+
+export interface Position {
+  x: number;
+  y: number;
+}
+
+export interface ExtensionComponentViewProps {
+  id: string
+  extension: Extension;
+  frameSize: FrameSize;
+  position: Position;
+  role: string;
+}
+
+export interface ViewStyles extends React.CSSProperties {
+  border: string;
+  position: PositionProperty;
+  left: string;
+  top: string;
+  width: string;
+  height: string;
+  transformOrigin?: string;
+  transform?: string;
+}
+type Props = ExtensionComponentViewProps;
+
+export class ExtensionComponentView extends React.Component<Props> {
+  private computeViewStyles(): ViewStyles {
     const extension = this.props.extension;
     const positionFromView = getComponentPositionFromView(
       this.props.frameSize.width,
@@ -18,7 +49,7 @@ export class ExtensionComponentView extends Component {
       this.props.frameSize.height,
       extension.views.component);
 
-    let viewStyles = {
+    let viewStyles: ViewStyles = {
       border: '1px solid #7D55C7',
       position: 'absolute',
       left: positionFromView.x + 'px',
@@ -61,11 +92,3 @@ export class ExtensionComponentView extends Component {
     );
   }
 }
-
-ExtensionComponentView.propTypes = {
-  id: PropTypes.string.isRequired,
-  extension: PropTypes.object.isRequired,
-  frameSize: PropTypes.object.isRequired,
-  position: PropTypes.object.isRequired,
-  role: PropTypes.string,
-};

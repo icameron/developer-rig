@@ -1,4 +1,8 @@
-export const MobileOrientation = {
+export interface Orientation {
+  [key: string]: string
+}
+
+export const MobileOrientation: Orientation = {
   Portrait: 'Portrait',
   Landscape: 'Landscape',
 }
