@@ -1,46 +1,22 @@
-export interface ExtensionMode {
-  Viewer: string;
-  Dashboard: string;
-  Config: string;
-}
+export function newMockCoordinator(): typeof window['extension-coordinator'] {
+  let coordinator = {} as typeof window['extension-coordinator'];
 
-export interface ExtensionViewType {
-  Component: string;
-  Config: string;
-  Hidden: string;
-  LiveConfig: string;
-  Mobile: string;
-  Panel: string;
-  VideoOverlay: string;
-}
-export interface ExtensionPlatform {
-  Web: string;
-  Mobile: string;
-}
-
-export interface ExtensionAnchor {
-  Panel: string;
-  Overlay: string;
-  Component: string;
-}
-
-export interface ExtensionCoordinator {
-  ExtensionMode: ExtensionMode;
-  ExtensionViewType: ExtensionViewType;
-  ExtensionPlatform: ExtensionPlatform;
-  ExtensionFrame: Function;
-  ExtensionAnchor: ExtensionAnchor;
-  getComponentPositionFromView: Function;
-  getComponentSizeFromView: Function;
-}
-
-export function newMockCoordinator(): ExtensionCoordinator {
-  let coordinator: ExtensionCoordinator;
   coordinator.ExtensionMode = {
     Viewer: 'viewer',
     Dashboard: 'dashboard',
     Config: 'config',
-  };
+  } as typeof coordinator.ExtensionMode;
+
+  coordinator.ExtensionPlatform = {
+    Web: 'web',
+    Mobile: 'mobile'
+  } as typeof coordinator.ExtensionPlatform;
+
+  coordinator.ExtensionAnchor = {
+    Panel: 'panel',
+    Overlay: 'video_overlay',
+    Component: 'component',
+  } as typeof coordinator.ExtensionAnchor;
 
   coordinator.ExtensionViewType = {
     Component: 'component',
@@ -50,38 +26,18 @@ export function newMockCoordinator(): ExtensionCoordinator {
     Mobile: 'mobile',
     Panel: 'panel',
     VideoOverlay: 'videoOverlay',
-  };
+  } as typeof coordinator.ExtensionViewType;
 
-  coordinator.ExtensionPlatform = {
-    Web: 'web',
-    Mobile: 'mobile'
-  };
+  coordinator.getComponentPositionFromView = () => ({
+    x: 20,
+    y: 20,
+  });
 
-  coordinator.ExtensionFrame = function () {
-    return {
-      on: () => { },
-    }
-  };
+  coordinator.getComponentSizeFromView = () => ({
+    width: 10,
+    height: 10,
+    zoomScale: 1024,
+  })
 
-  coordinator.ExtensionAnchor = {
-    Panel: 'panel',
-    Overlay: 'video_overlay',
-    Component: 'component',
-  };
-
-  coordinator.getComponentPositionFromView = function () {
-    return {
-      x: 20,
-      y: 20,
-    }
-  }
-
-  coordinator.getComponentSizeFromView = function () {
-    return {
-      width: 10,
-      height: 10,
-      zoomScale: 1024,
-    }
-  }
   return coordinator;
 }

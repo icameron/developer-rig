@@ -100,7 +100,8 @@
       "!src/**/index.{js,ts}",
       "!src/**/container.{js,ts}",
       "!src/tests/**",
-      "!src/core/models/**"
+      "!src/core/models/**",
+      "!src/types/**"
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,

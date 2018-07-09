@@ -1,9 +1,10 @@
 import { setupShallowTest } from '../tests/enzyme-util/shallow';
-import { ExtensionRigConsole } from './component';
+import { Console } from './component';
 
-describe('<ExtensionRigConsole />', () => {
-  const setupShallow = setupShallowTest(ExtensionRigConsole, () => ({}));
+const propGenerator = () => ({});
+const setupShallow = setupShallowTest(Console, propGenerator);
 
+describe('<Console />', () => {
   it('renders correctly', () => {
     const { wrapper } = setupShallow();
     expect(wrapper).toMatchSnapshot();
@@ -11,21 +12,23 @@ describe('<ExtensionRigConsole />', () => {
 
   it('calling window.rig.update correctly updates the console.', () => {
     const { wrapper } = setupShallow();
-    wrapper.setState({
-      logHistory: [
-        {
-          log: 'test',
-          frame: 'test-frame',
-        },
-      ],
-    });
+
+    expect(wrapper.children().length).toEqual(0);
+
+    window.rig.history = [
+      {
+        log: 'test',
+        frame: 'test-frame',
+      },
+    ];
     window.rig.update();
-    expect(wrapper.find('ExtensionRigConsoleLog').dive().instance().props.log).toBe('test');
+    wrapper.update();
+
+    expect(wrapper.children().length).toEqual(1);
   });
 
   it('renders log messages correctly', () => {
     const { wrapper } = setupShallow();
-    expect(wrapper.find('ExtensionRigConsoleLog').exists()).toEqual(false);
     wrapper.setState({
       logHistory: [
         {
@@ -35,6 +38,6 @@ describe('<ExtensionRigConsole />', () => {
       ],
     });
     wrapper.update();
-    expect(wrapper.find('ExtensionRigConsoleLog').exists()).toEqual(true);
+    expect(wrapper.childAt(0).text()).toEqual('test-frame $ test');
   });
 });

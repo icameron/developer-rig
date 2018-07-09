@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './component.sass'; 
+import './component.sass';
 import { RigNav } from '../rig-nav';
 import { ExtensionViewContainer } from '../extension-view-container';
-import { ExtensionRigConsole } from '../console';
+import { Console } from '../console';
 import { ExtensionViewDialog } from '../extension-view-dialog';
 import { RigConfigurationsDialog } from '../rig-configurations-dialog';
 import { EditViewDialog } from '../edit-view-dialog';
@@ -246,7 +246,7 @@ export class Rig extends Component {
           config={this.state.manifest}
           closeConfigurationsHandler={this.closeConfigurationsHandler}
           refreshConfigurationsHandler={this.refreshConfigurationsHandler} />
-        <ExtensionRigConsole />
+        <Console />
       </div>
     );
 
