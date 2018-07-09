@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import './component.sass';
 import { ProductTable } from '../product-table-component';
 
-export class ProductManagementViewContainer extends Component {
+export interface ProductManagementViewContainerProps {
+  clientId: string;
+}
+
+export class ProductManagementViewContainer extends React.Component<ProductManagementViewContainerProps> {
   render() {
     return (
       <div className='product-container-wrapper'>
@@ -13,8 +16,4 @@ export class ProductManagementViewContainer extends Component {
       </div>
     );
   }
-}
-
-ProductManagementViewContainer.propTypes = {
-  clientId: PropTypes.string.isRequired,
 }

@@ -1,10 +1,11 @@
-import { connect } from 'react-redux';
+import { connect, Dispatch } from 'react-redux';
 import { getUserSession } from '../core/state/session';
 import { getProducts, getError } from '../core/state/products';
-import { ProductTableComponent } from './component';
+import { ProductTableComponent, ReduxStateProps, ReduxDispatchProps } from './component';
 import * as ProductActions from '../core/actions/products';
+import { GlobalState } from '../core/models/global-state';
 
-function mapStateToProps(state) {
+function mapStateToProps(state: GlobalState): ReduxStateProps {
   return {
     products: getProducts(state),
     error: getError(state),
@@ -12,7 +13,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch<GlobalState>): ReduxDispatchProps {
   return {
     loadProductsSuccess: products => dispatch(ProductActions.loadProductsSuccess(products)),
     loadProductsFailure: error => dispatch(ProductActions.loadProductsFailure(error)),

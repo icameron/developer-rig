@@ -1,9 +1,15 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import closeButton from '../img/close_icon.png';
+import * as React from 'react';
+import * as closeButton from '../img/close_icon.png';
 import './component.sass';
 
-export class RigConfigurationsDialog extends Component {
+export interface RigConfigurationsDialogProps {
+  show: boolean;
+  config: object;
+  closeConfigurationsHandler: () => void;
+  refreshConfigurationsHandler: () => void;
+}
+
+export class RigConfigurationsDialog extends React.Component<RigConfigurationsDialogProps> {
   render() {
     if (!this.props.show) {
       return null;
@@ -30,9 +36,3 @@ export class RigConfigurationsDialog extends Component {
   }
 }
 
-RigConfigurationsDialog.propTypes = {
-  show: PropTypes.bool.isRequired,
-  config: PropTypes.object.isRequired,
-  closeConfigurationsHandler: PropTypes.func.isRequired,
-  refreshConfigurationsHandler: PropTypes.func.isRequired,
-};

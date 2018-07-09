@@ -1,14 +1,36 @@
-import React, { Component } from 'react'
-import { ProductRow } from './product-row';
+import * as React from 'react';
+import { ProductRow } from './components/product-row/component';
 import { fetchProducts, saveProduct } from '../util/api';
 import * as ProductErrors from '../constants/product-errors';
 import './component.sass';
+import { Product } from '../core/models/product';
 
 const PRODUCT_NUM_LIMIT = 250;
 
-export class ProductTableComponent extends Component {
+export interface ProductTableComponentProps {
+  clientId: string;
+}
 
-  componentDidMount() {
+export interface ReduxStateProps {
+  products: Product[];
+  error: string;
+  token: string;
+}
+
+export interface ReduxDispatchProps {
+  loadProductsSuccess: (products: Product[]) => void;
+  loadProductsFailure: (error: string) => void;
+  saveProductsSuccess: (index: number) => void;
+  saveProductsFailure: (index: number, error: string) => void;
+  addProduct: () => void;
+  changeProductValue: (index: number, fieldName: string, value: any) => void;
+}
+
+type Props = ProductTableComponentProps & ReduxStateProps & ReduxDispatchProps;
+
+export class ProductTableComponent extends React.Component<Props>{
+
+  public componentDidMount() {
     const { clientId, token, loadProductsSuccess, loadProductsFailure } = this.props;
     fetchProducts(
       'api.twitch.tv',
@@ -19,14 +41,14 @@ export class ProductTableComponent extends Component {
     );
   }
 
-  handleValueChange(index, event) {
+  public handleValueChange(index: number, event: React.FormEvent<HTMLInputElement> ) {
     const { changeProductValue } = this.props;
-    const value = event.target.value;
-    const fieldName = event.target.name;
+    const value = event.currentTarget.value;
+    const fieldName = event.currentTarget.name;
     changeProductValue(index, fieldName, value);
   }
 
-  handleDeprecateClick(index) {
+  public handleDeprecateClick(index: number) {
     const { changeProductValue } = this.props;
     const deprecated = this.props.products[index].deprecated;
     changeProductValue(index, 'deprecated', !deprecated);
@@ -54,12 +76,12 @@ export class ProductTableComponent extends Component {
     });
   }
 
-  render() {
+  public ender() {
     const skus = this.props.products.map(p => p.sku);
     const disableAddButton = this.props.products.length >= PRODUCT_NUM_LIMIT;
     let disableSaveButton = false;
-    let liveProducts = [];
-    let deprecatedProducts = [];
+    let liveProducts: JSX.Element[] = [];
+    let deprecatedProducts: JSX.Element[] = [];
 
     this.props.products.forEach((p, i) => {
       const matchingSkus = skus.filter(sku => sku === p.sku);
@@ -144,7 +166,7 @@ export class ProductTableComponent extends Component {
             <div className="product-table__category">Live</div>
             {productTableHeader}
             {liveProducts}
-          </div>        
+          </div>
         }
         {deprecatedProducts.length > 0 &&
           <div>
