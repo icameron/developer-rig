@@ -77,7 +77,7 @@ export function convertViews(data: ViewsResponse): ExtensionViews {
   return views;
 }
 
-export function fetchExtensionManifest(host: string, clientId: string, version: string, jwt: string, onSuccess: Function, onError: Function) {
+export function fetchExtensionManifest(host: string, clientId: string, version: string, jwt: string) {
   const api = 'https://' + host + '/kraken/extensions/search';
   return fetch(api, {
     method: 'POST',
@@ -101,27 +101,27 @@ export function fetchExtensionManifest(host: string, clientId: string, version: 
       ]
     }),
     referrer: 'Twitch Developer Rig',
-  }).then((response) =>  response.json())
-    .then((data) => {
-      if (data.extensions && data.extensions.length > 0) {
-        const manifest = data.extensions[0];
-        manifest.views = convertViews(manifest.views);
-        onSuccess({ manifest: manifest, error: '' });
-      } else {
-        onError("Unable to retrieve extension manifest, please verify EXT_OWNER_NAME and EXT_SECRET");
-      }
-    });
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    if (data.extensions && data.extensions.length > 0) {
+      const manifest = data.extensions[0];
+      manifest.views = convertViews(manifest.views);
+      return Promise.resolve({ manifest });
+    }
+
+    return Promise.reject('Unable to retrieve extension manifest, please verify EXT_OWNER_NAME and EXT_SECRET');
+  });
 }
 
-export function fetchManifest(host: string, clientId: string, username: string, version: string, channelId: string, secret: string, onSuccess: Function, onError: Function) {
+export function fetchManifest(host: string, clientId: string, username: string, version: string, channelId: string, secret: string) {
   if (!username || !clientId || !version || !channelId || !secret) {
-    onError(missingConfigurations({
+    return Promise.reject(missingConfigurations({
       'EXT_CLIENT_ID': clientId,
       'EXT_VERSION': version,
       'EXT_CHANNEL': channelId,
       'EXT_SECRET': secret,
     }));
-    return null;
   }
 
   const api = 'https://' + host + '/helix/users?login=' + username;
@@ -133,13 +133,12 @@ export function fetchManifest(host: string, clientId: string, username: string, 
     referrer: 'Twitch Developer Rig',
   }).then((response) => {
     if (response.status >= 400 && response.status < 500) {
-      onError(`Unable to authorize for user ${username} and client id ${clientId}`)
-      return null;
+      return Promise.reject(`Unable to authorize for user ${username} and client id ${clientId}`)
     }
     if (response.status >= 500) {
-      onError('Unable to hit Twitch API to initialize the rig. Try again later.');
-      return null;
+      return Promise.reject('Unable to hit Twitch API to initialize the rig. Try again later.');
     }
+
     return response.json()
   }).then((respJson) => {
     if (!respJson) {
@@ -148,14 +147,12 @@ export function fetchManifest(host: string, clientId: string, username: string, 
 
     const data = respJson.data;
     if (!data && data.length === 0) {
-      onError('Unable to verify the id for username: ' + username);
-      return null;
+      return Promise.reject('Unable to verify the id for username: ' + username);
     }
-    const userId = data[0]['id'];
-    onSuccess({ userId: userId });
 
+    const userId = data[0]['id'];
     const token = createSignedToken(RigRole, '', userId, channelId, secret);
-    return fetchExtensionManifest(host, clientId, version, token, onSuccess, onError);
+    return fetchExtensionManifest(host, clientId, version, token);
   });
 }
 

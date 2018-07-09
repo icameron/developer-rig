@@ -142,7 +142,9 @@ export class Rig extends Component {
 
   refreshConfigurationsHandler = () => {
     const token = createSignedToken(RIG_ROLE, '', this.state.userId, this.state.channelId, this.state.secret);
-    fetchExtensionManifest(this.state.apiHost, this.state.clientId, this.state.version, token, this._onConfigurationSuccess, this._onConfigurationError);
+    fetchExtensionManifest(this.state.apiHost, this.state.clientId, this.state.version, token)
+      .then(this._onConfigurationSuccess)
+      .catch(this._onConfigurationError);
   }
 
   _onConfigurationSuccess = (data) => {
@@ -286,7 +288,16 @@ export class Rig extends Component {
 
   _fetchInitialConfiguration() {
     if (this.state.userName) {
-      fetchManifest(this.state.apiHost, this.state.clientId, this.state.userName, this.state.version, this.state.channelId, this.state.secret, this._onConfigurationSuccess, this._onConfigurationError);
+      fetchManifest(
+        this.state.apiHost,
+        this.state.clientId,
+        this.state.userName,
+        this.state.version,
+        this.state.channelId,
+        this.state.secret
+      )
+      .then(this._onConfigurationSuccess)
+      .catch(this._onConfigurationError);
     }
   }
 
