@@ -1,9 +1,15 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import './component.sass';
 import './component.css';
 
-export class DivOption extends Component {
+export interface DivOptionProps {
+  img: string;
+  name: string;
+  value: string;
+  onChange: (event: React.FormEvent<HTMLInputElement>) => void;
+  checked: boolean;
+}
+export class DivOption extends React.Component<DivOptionProps> {
   render() {
     return (
       <div className="extension-container__block">
@@ -21,11 +27,3 @@ export class DivOption extends Component {
     );
   }
 }
-
-DivOption.propTypes = {
-  img: PropTypes.string,
-  name: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  checked: PropTypes.bool,
-};

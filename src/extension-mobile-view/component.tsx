@@ -1,13 +1,23 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import { ExtensionFrame } from '../extension-frame';
 import { MobileOrientation } from '../constants/mobile';
+import { FrameSize } from '../extension-component-view';
+import { Extension } from '../core/models/extension';
 const { ExtensionMode, ExtensionViewType } = window['extension-coordinator'];
 
 const ViewBackgroundColor = '#322F37';
 const AbsolutePosition = 'absolute';
 
-export class ExtensionMobileView extends Component {
+export interface ExtensionMobileViewProps {
+  id: string;
+  orientation: string;
+  extension: Extension;
+  frameSize: FrameSize;
+  position: Position;
+  role: string;
+}
+
+export class ExtensionMobileView extends React.Component<ExtensionMobileViewProps> {
   computeFrameStyles() {
     let frameStyles;
 
@@ -66,12 +76,3 @@ export class ExtensionMobileView extends Component {
     );
   }
 }
-
-ExtensionMobileView.propTypes = {
-  id: PropTypes.string.isRequired,
-  orientation: PropTypes.string.isRequired,
-  extension: PropTypes.object.isRequired,
-  frameSize: PropTypes.object.isRequired,
-  position: PropTypes.object.isRequired,
-  role: PropTypes.string,
-};

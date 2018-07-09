@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import './component.sass';
 import { ExtensionAnchors, DEFAULT_EXTENSION_TYPE } from '../constants/extension-types'
 import { OverlaySizes, DEFAULT_OVERLAY_SIZE, DEFAULT_CUSTOM_DIMENSIONS } from '../constants/overlay-sizes'
@@ -8,12 +7,35 @@ import { IdentityOptions, DEFAULT_IDENTITY_OPTION } from '../constants/identity-
 import { ViewTypeImages } from '../constants/img-map';
 import { RadioOption } from './radio-option';
 import { DivOption } from './div-option';
-import closeButton from '../img/close_icon.png';
+import * as closeButton from '../img/close_icon.png';
 import { MobileOrientation, DefaultMobileOrientation, MobileSizes } from '../constants/mobile';
+import { RigExtensionView } from '../core/models/rig';
 const { ExtensionAnchor, ExtensionPlatform } = window['extension-coordinator'];
 
-export class ExtensionViewDialog extends Component {
-  constructor(props) {
+export interface ExtensionViewDialogProps {
+  extensionViews: RigExtensionView[],
+  closeHandler: Function,
+  saveHandler: Function,
+  show?: boolean,
+}
+
+interface State {
+  extensionViewType: string;
+  frameSize: string;
+  viewerType: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  identityOption: string;
+  orientation: string;
+  opaqueId: string;
+}
+
+export class ExtensionViewDialog extends React.Component<ExtensionViewDialogProps, State> {
+  private defaultState: State;
+
+  constructor(props: ExtensionViewDialogProps) {
     super(props);
     this.state = {
       extensionViewType: DEFAULT_EXTENSION_TYPE,
@@ -273,8 +295,4 @@ export class ExtensionViewDialog extends Component {
 }
 
 ExtensionViewDialog.propTypes = {
-  extensionViews: PropTypes.object.isRequired,
-  closeHandler: PropTypes.func.isRequired,
-  saveHandler: PropTypes.func.isRequired,
-  show: PropTypes.bool,
 };

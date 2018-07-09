@@ -1,18 +1,33 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import './component.sass';
 import { ExtensionFrame } from '../extension-frame';
 import { IdentityOptions } from '../constants/identity-options';
 import { ViewerTypes } from '../constants/viewer-types';
 import { CONFIG_VIEW_DIMENSIONS, CONFIG_VIEW_WRAPPER_DIMENSIONS, PANEL_VIEW_DIMENSIONS } from '../constants/view_sizes';
-import closeButton from '../img/close_icon.png';
+import * as closeButton from '../img/close_icon.png';
 import { ExtensionComponentView } from '../extension-component-view';
 import { ExtensionMobileView } from '../extension-mobile-view/component';
 
 const { ExtensionAnchor, ExtensionMode, ExtensionViewType, ExtensionPlatform} = window['extension-coordinator'];
 
-export class ExtensionView extends Component {
-  constructor(props) {
+export interface ExtensionViewProps {
+  id: string;
+  extension: object;
+  type: string;
+  mode: string;
+  role: string;
+  deleteViewHandler: func;
+  openEditViewHandler: func;
+  position: object;
+  frameSize: object;
+}
+
+interface State {
+  mousedOver: boolean;
+}
+
+export class ExtensionView extends React.Component<ExtensionViewProps, State> {
+  constructor(props: ExtensionViewProps) {
     super(props);
 
     this.state = {
@@ -158,15 +173,3 @@ export class ExtensionView extends Component {
     );
   }
 }
-
-ExtensionView.propTypes = {
-  id: PropTypes.string.isRequired,
-  extension: PropTypes.object.isRequired,
-  type: PropTypes.string.isRequired,
-  mode: PropTypes.string.isRequired,
-  role: PropTypes.string,
-  deleteViewHandler: PropTypes.func,
-  openEditViewHandler: PropTypes.func,
-  position: PropTypes.object,
-  frameSize: PropTypes.object,
-};

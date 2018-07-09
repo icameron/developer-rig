@@ -11,8 +11,8 @@ export interface EditViewDialogProps {
   show: boolean;
   idToEdit: string;
   views: Array<RigExtensionView>;
-  closeHandler: (event: MouseEvent) => void;
-  saveViewHandler: (event: MouseEvent) => void;
+  closeHandler: () => void;
+  saveViewHandler: (newView: RigExtensionView) => void;
 }
 
 interface State {
