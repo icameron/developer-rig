@@ -7,8 +7,8 @@ function mockApiFunctions() {
   const original = require.requireActual('../util/api');
   return {
     ...original,
-    fetchProducts: jest.fn(),
-    saveProduct: jest.fn(),
+    fetchProducts: jest.fn().mockImplementation(() => Promise.resolve()),
+    saveProduct: jest.fn().mockImplementation(() => Promise.resolve()),
   }
 }
 jest.mock('../util/api', () => mockApiFunctions());

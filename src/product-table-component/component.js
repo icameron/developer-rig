@@ -7,16 +7,11 @@ import './component.sass';
 const PRODUCT_NUM_LIMIT = 250;
 
 export class ProductTableComponent extends Component {
-
   componentDidMount() {
     const { clientId, token, loadProductsSuccess, loadProductsFailure } = this.props;
-    fetchProducts(
-      'api.twitch.tv',
-      clientId,
-      token,
-      loadProductsSuccess,
-      loadProductsFailure,
-    );
+    fetchProducts('api.twitch.tv', clientId, token)
+      .then(loadProductsSuccess)
+      .catch(loadProductsFailure);
   }
 
   handleValueChange(index, event) {
@@ -41,15 +36,9 @@ export class ProductTableComponent extends Component {
     const { clientId, token, saveProductsSuccess, saveProductsFailure } = this.props;
     this.props.products.forEach((product, index) => {
       if (product.dirty) {
-        saveProduct(
-          'api.twitch.tv',
-          clientId,
-          token,
-          product,
-          index,
-          saveProductsSuccess,
-          saveProductsFailure,
-        );
+        saveProduct('api.twitch.tv', clientId, token, product, index)
+          .then(saveProductsSuccess)
+          .catch(saveProductsFailure)
       }
     });
   }
@@ -144,7 +133,7 @@ export class ProductTableComponent extends Component {
             <div className="product-table__category">Live</div>
             {productTableHeader}
             {liveProducts}
-          </div>        
+          </div>
         }
         {deprecatedProducts.length > 0 &&
           <div>

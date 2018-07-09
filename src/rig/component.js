@@ -320,25 +320,26 @@ export class Rig extends Component {
       const accessTokenIndex = windowHash.indexOf(accessTokenKey);
       const ampersandIndex = windowHash.indexOf('&');
       const accessToken = windowHash.substring(accessTokenIndex + accessTokenKey.length, ampersandIndex);
-      fetchUserInfo('api.twitch.tv', accessToken, resp => {
-        const userSess = {
-          login: resp.login,
-          authToken: accessToken,
-          profileImageUrl: resp.profile_image_url,
-        }
-        this.setState({
-          userName: resp.login,
+      fetchUserInfo('api.twitch.tv', accessToken)
+        .then((resp) => {
+          const userSess = {
+            login: resp.login,
+            authToken: accessToken,
+            profileImageUrl: resp.profile_image_url,
+          }
+
+          this.setState({
+            userName: resp.login,
+          });
+
+          store.dispatch(userLogin(userSess));
+          localStorage.setItem('rigLogin', JSON.stringify(userSess));
+          window.location = '/';
+        })
+        .catch((error) => {
+          this.setState({ error });
         });
-        store.dispatch(userLogin(userSess));
-        localStorage.setItem('rigLogin', JSON.stringify(userSess));
-        window.location = '/';
-      }, err => {
-        this.setState({
-          error: err,
-        });
-      })
-    }
-    else if (rigLogin) {
+    } else if (rigLogin) {
       const login = JSON.parse(rigLogin);
       this.setState({
         userName: login.login,
