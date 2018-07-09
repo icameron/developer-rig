@@ -1,1 +1,1 @@
-export const RigRole: string = 'rig';
+export const RigRole = 'rig';

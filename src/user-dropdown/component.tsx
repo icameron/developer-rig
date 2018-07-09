@@ -47,7 +47,7 @@ export class UserDropdownComponent extends React.Component<Props, State> {
             releaseUrl,
           });
         }
-      });
+      }, () => {});
     }
   }
   public render() {

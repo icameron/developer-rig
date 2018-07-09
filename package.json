@@ -79,6 +79,7 @@
     "host": "node ./scripts/ssl.js && node ./scripts/host.js"
   },
   "devDependencies": {
+    "@types/eventemitter2": "^4.1.0",
     "coveralls": "^3.0.0",
     "cross-env": "^5.1.4",
     "enzyme": "^3.3.0",
@@ -105,7 +106,7 @@
     "collectCoverage": true,
     "setupFiles": [
       "<rootDir>/config/polyfills.js",
-      "<rootDir>/src/tests/setup.js"
+      "<rootDir>/src/tests/setup.ts"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,ts,tsx,jsx,mjs}",
