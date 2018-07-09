@@ -66,7 +66,7 @@ export class ProductTableComponent extends React.Component<Props>{
     });
   }
 
-  public ender() {
+  public render() {
     const skus = this.props.products.map(p => p.sku);
     const disableAddButton = this.props.products.length >= PRODUCT_NUM_LIMIT;
     let disableSaveButton = false;

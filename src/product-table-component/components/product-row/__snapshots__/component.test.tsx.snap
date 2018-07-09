@@ -1,0 +1,1120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductRow /> renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ProductRow
+    product={
+        Object {
+            "amount": 100,
+            "broadcast": "false",
+            "deprecated": false,
+            "dirty": false,
+            "displayName": "Test Product 1",
+            "inDevelopment": "false",
+            "savedInCatalog": true,
+            "sku": "testSku1",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="text-col"
+>
+          <input
+                    className="form__input"
+                    maxLength={255}
+                    name="displayName"
+                    onChange={undefined}
+                    required={true}
+                    type="text"
+                    value="Test Product 1"
+          />
+</div>,
+        <div
+          className="text-col"
+>
+          <input
+                    className="form__input"
+                    disabled={true}
+                    maxLength={255}
+                    name="sku"
+                    onChange={undefined}
+                    required={true}
+                    type="text"
+                    value="testSku1"
+          />
+</div>,
+        <div
+          className="text-col"
+>
+          <input
+                    className="form__input"
+                    max="10000"
+                    min="1"
+                    name="amount"
+                    onChange={undefined}
+                    required={true}
+                    type="number"
+                    value={100}
+          />
+</div>,
+        <div
+          className="select-col"
+>
+          <select
+                    className="form__input"
+                    name="inDevelopment"
+                    onChange={undefined}
+                    value="false"
+          >
+                    <option
+                              value="true"
+                    >
+                              Yes
+                    </option>
+                    <option
+                              value="false"
+                    >
+                              No
+                    </option>
+          </select>
+</div>,
+        <div
+          className="select-col"
+>
+          <select
+                    className="form__input"
+                    name="broadcast"
+                    onChange={undefined}
+                    value="false"
+          >
+                    <option
+                              value="true"
+                    >
+                              Yes
+                    </option>
+                    <option
+                              value="false"
+                    >
+                              No
+                    </option>
+          </select>
+</div>,
+        <div
+          className="button-col"
+>
+          <button
+                    className="product-row__deprecate-button"
+                    onClick={undefined}
+          >
+                    Deprecate
+          </button>
+</div>,
+        <div
+          className="dirty-col"
+>
+          <div
+                    className="dirty-indicator hidden"
+          >
+                    <svg
+                              height="30"
+                              width="30"
+                              xmlns="http://www.w3.org/2000/svg"
+                    >
+                              <circle
+                                        cx="5"
+                                        cy="5"
+                                        r="3"
+                              />
+                    </svg>
+          </div>
+</div>,
+      ],
+      "className": "product-table__row",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              className="form__input"
+              maxLength={255}
+              name="displayName"
+              onChange={undefined}
+              required={true}
+              type="text"
+              value="Test Product 1"
+/>,
+            undefined,
+          ],
+          "className": "text-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "form__input",
+              "maxLength": 255,
+              "name": "displayName",
+              "onChange": undefined,
+              "required": true,
+              "type": "text",
+              "value": "Test Product 1",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          undefined,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              className="form__input"
+              disabled={true}
+              maxLength={255}
+              name="sku"
+              onChange={undefined}
+              required={true}
+              type="text"
+              value="testSku1"
+/>,
+            undefined,
+          ],
+          "className": "text-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "form__input",
+              "disabled": true,
+              "maxLength": 255,
+              "name": "sku",
+              "onChange": undefined,
+              "required": true,
+              "type": "text",
+              "value": "testSku1",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          undefined,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              className="form__input"
+              max="10000"
+              min="1"
+              name="amount"
+              onChange={undefined}
+              required={true}
+              type="number"
+              value={100}
+/>,
+            undefined,
+          ],
+          "className": "text-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "form__input",
+              "max": "10000",
+              "min": "1",
+              "name": "amount",
+              "onChange": undefined,
+              "required": true,
+              "type": "number",
+              "value": 100,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          undefined,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <select
+              className="form__input"
+              name="inDevelopment"
+              onChange={undefined}
+              value="false"
+>
+              <option
+                            value="true"
+              >
+                            Yes
+              </option>
+              <option
+                            value="false"
+              >
+                            No
+              </option>
+</select>,
+            undefined,
+          ],
+          "className": "select-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <option
+                  value="true"
+>
+                  Yes
+</option>,
+                <option
+                  value="false"
+>
+                  No
+</option>,
+              ],
+              "className": "form__input",
+              "name": "inDevelopment",
+              "onChange": undefined,
+              "value": "false",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Yes",
+                  "value": "true",
+                },
+                "ref": null,
+                "rendered": "Yes",
+                "type": "option",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "No",
+                  "value": "false",
+                },
+                "ref": null,
+                "rendered": "No",
+                "type": "option",
+              },
+            ],
+            "type": "select",
+          },
+          undefined,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <select
+              className="form__input"
+              name="broadcast"
+              onChange={undefined}
+              value="false"
+>
+              <option
+                            value="true"
+              >
+                            Yes
+              </option>
+              <option
+                            value="false"
+              >
+                            No
+              </option>
+</select>,
+            undefined,
+          ],
+          "className": "select-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <option
+                  value="true"
+>
+                  Yes
+</option>,
+                <option
+                  value="false"
+>
+                  No
+</option>,
+              ],
+              "className": "form__input",
+              "name": "broadcast",
+              "onChange": undefined,
+              "value": "false",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Yes",
+                  "value": "true",
+                },
+                "ref": null,
+                "rendered": "Yes",
+                "type": "option",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "No",
+                  "value": "false",
+                },
+                "ref": null,
+                "rendered": "No",
+                "type": "option",
+              },
+            ],
+            "type": "select",
+          },
+          undefined,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <button
+              className="product-row__deprecate-button"
+              onClick={undefined}
+>
+              Deprecate
+</button>,
+            undefined,
+          ],
+          "className": "button-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Deprecate",
+              "className": "product-row__deprecate-button",
+              "onClick": undefined,
+            },
+            "ref": null,
+            "rendered": "Deprecate",
+            "type": "button",
+          },
+          undefined,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="dirty-indicator hidden"
+>
+              <svg
+                            height="30"
+                            width="30"
+                            xmlns="http://www.w3.org/2000/svg"
+              >
+                            <circle
+                                          cx="5"
+                                          cy="5"
+                                          r="3"
+                            />
+              </svg>
+</div>,
+            undefined,
+          ],
+          "className": "dirty-col",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <svg
+                height="30"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+>
+                <circle
+                                cx="5"
+                                cy="5"
+                                r="3"
+                />
+</svg>,
+              "className": "dirty-indicator hidden",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <circle
+                  cx="5"
+                  cy="5"
+                  r="3"
+/>,
+                "height": "30",
+                "width": "30",
+                "xmlns": "http://www.w3.org/2000/svg",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "cx": "5",
+                  "cy": "5",
+                  "r": "3",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "circle",
+              },
+              "type": "svg",
+            },
+            "type": "div",
+          },
+          undefined,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="text-col"
+>
+            <input
+                        className="form__input"
+                        maxLength={255}
+                        name="displayName"
+                        onChange={undefined}
+                        required={true}
+                        type="text"
+                        value="Test Product 1"
+            />
+</div>,
+          <div
+            className="text-col"
+>
+            <input
+                        className="form__input"
+                        disabled={true}
+                        maxLength={255}
+                        name="sku"
+                        onChange={undefined}
+                        required={true}
+                        type="text"
+                        value="testSku1"
+            />
+</div>,
+          <div
+            className="text-col"
+>
+            <input
+                        className="form__input"
+                        max="10000"
+                        min="1"
+                        name="amount"
+                        onChange={undefined}
+                        required={true}
+                        type="number"
+                        value={100}
+            />
+</div>,
+          <div
+            className="select-col"
+>
+            <select
+                        className="form__input"
+                        name="inDevelopment"
+                        onChange={undefined}
+                        value="false"
+            >
+                        <option
+                                    value="true"
+                        >
+                                    Yes
+                        </option>
+                        <option
+                                    value="false"
+                        >
+                                    No
+                        </option>
+            </select>
+</div>,
+          <div
+            className="select-col"
+>
+            <select
+                        className="form__input"
+                        name="broadcast"
+                        onChange={undefined}
+                        value="false"
+            >
+                        <option
+                                    value="true"
+                        >
+                                    Yes
+                        </option>
+                        <option
+                                    value="false"
+                        >
+                                    No
+                        </option>
+            </select>
+</div>,
+          <div
+            className="button-col"
+>
+            <button
+                        className="product-row__deprecate-button"
+                        onClick={undefined}
+            >
+                        Deprecate
+            </button>
+</div>,
+          <div
+            className="dirty-col"
+>
+            <div
+                        className="dirty-indicator hidden"
+            >
+                        <svg
+                                    height="30"
+                                    width="30"
+                                    xmlns="http://www.w3.org/2000/svg"
+                        >
+                                    <circle
+                                                cx="5"
+                                                cy="5"
+                                                r="3"
+                                    />
+                        </svg>
+            </div>
+</div>,
+        ],
+        "className": "product-table__row",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                className="form__input"
+                maxLength={255}
+                name="displayName"
+                onChange={undefined}
+                required={true}
+                type="text"
+                value="Test Product 1"
+/>,
+              undefined,
+            ],
+            "className": "text-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "form__input",
+                "maxLength": 255,
+                "name": "displayName",
+                "onChange": undefined,
+                "required": true,
+                "type": "text",
+                "value": "Test Product 1",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            undefined,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                className="form__input"
+                disabled={true}
+                maxLength={255}
+                name="sku"
+                onChange={undefined}
+                required={true}
+                type="text"
+                value="testSku1"
+/>,
+              undefined,
+            ],
+            "className": "text-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "form__input",
+                "disabled": true,
+                "maxLength": 255,
+                "name": "sku",
+                "onChange": undefined,
+                "required": true,
+                "type": "text",
+                "value": "testSku1",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            undefined,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                className="form__input"
+                max="10000"
+                min="1"
+                name="amount"
+                onChange={undefined}
+                required={true}
+                type="number"
+                value={100}
+/>,
+              undefined,
+            ],
+            "className": "text-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "form__input",
+                "max": "10000",
+                "min": "1",
+                "name": "amount",
+                "onChange": undefined,
+                "required": true,
+                "type": "number",
+                "value": 100,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            undefined,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <select
+                className="form__input"
+                name="inDevelopment"
+                onChange={undefined}
+                value="false"
+>
+                <option
+                                value="true"
+                >
+                                Yes
+                </option>
+                <option
+                                value="false"
+                >
+                                No
+                </option>
+</select>,
+              undefined,
+            ],
+            "className": "select-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <option
+                    value="true"
+>
+                    Yes
+</option>,
+                  <option
+                    value="false"
+>
+                    No
+</option>,
+                ],
+                "className": "form__input",
+                "name": "inDevelopment",
+                "onChange": undefined,
+                "value": "false",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Yes",
+                    "value": "true",
+                  },
+                  "ref": null,
+                  "rendered": "Yes",
+                  "type": "option",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "No",
+                    "value": "false",
+                  },
+                  "ref": null,
+                  "rendered": "No",
+                  "type": "option",
+                },
+              ],
+              "type": "select",
+            },
+            undefined,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <select
+                className="form__input"
+                name="broadcast"
+                onChange={undefined}
+                value="false"
+>
+                <option
+                                value="true"
+                >
+                                Yes
+                </option>
+                <option
+                                value="false"
+                >
+                                No
+                </option>
+</select>,
+              undefined,
+            ],
+            "className": "select-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <option
+                    value="true"
+>
+                    Yes
+</option>,
+                  <option
+                    value="false"
+>
+                    No
+</option>,
+                ],
+                "className": "form__input",
+                "name": "broadcast",
+                "onChange": undefined,
+                "value": "false",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Yes",
+                    "value": "true",
+                  },
+                  "ref": null,
+                  "rendered": "Yes",
+                  "type": "option",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "No",
+                    "value": "false",
+                  },
+                  "ref": null,
+                  "rendered": "No",
+                  "type": "option",
+                },
+              ],
+              "type": "select",
+            },
+            undefined,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <button
+                className="product-row__deprecate-button"
+                onClick={undefined}
+>
+                Deprecate
+</button>,
+              undefined,
+            ],
+            "className": "button-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Deprecate",
+                "className": "product-row__deprecate-button",
+                "onClick": undefined,
+              },
+              "ref": null,
+              "rendered": "Deprecate",
+              "type": "button",
+            },
+            undefined,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="dirty-indicator hidden"
+>
+                <svg
+                                height="30"
+                                width="30"
+                                xmlns="http://www.w3.org/2000/svg"
+                >
+                                <circle
+                                                cx="5"
+                                                cy="5"
+                                                r="3"
+                                />
+                </svg>
+</div>,
+              undefined,
+            ],
+            "className": "dirty-col",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <svg
+                  height="30"
+                  width="30"
+                  xmlns="http://www.w3.org/2000/svg"
+>
+                  <circle
+                                    cx="5"
+                                    cy="5"
+                                    r="3"
+                  />
+</svg>,
+                "className": "dirty-indicator hidden",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <circle
+                    cx="5"
+                    cy="5"
+                    r="3"
+/>,
+                  "height": "30",
+                  "width": "30",
+                  "xmlns": "http://www.w3.org/2000/svg",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "cx": "5",
+                    "cy": "5",
+                    "r": "3",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "circle",
+                },
+                "type": "svg",
+              },
+              "type": "div",
+            },
+            undefined,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

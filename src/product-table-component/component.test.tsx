@@ -53,7 +53,7 @@ describe('<ProductTableComponent />', () => {
     const fieldName = 'sku';
     const value = 'newSku';
     const productRowWrapper = wrapper.find(ProductRow).first().dive();
-    productRowWrapper.find('input[name="sku"]').simulate('change', {target: {name: fieldName, value: value}});
+    productRowWrapper.find('input[name="sku"]').simulate('change', {currentTarget: {name: fieldName, value: value}});
     expect(wrapper.instance().props.changeProductValue).toHaveBeenCalledWith(0, fieldName, value);
   });
 

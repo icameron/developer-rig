@@ -14,9 +14,11 @@ export interface State {
 export class ProductRow extends React.Component<ProductRowProps, State>{
   constructor(props: ProductRowProps) {
     super(props);
+    const { product } = this.props;
+    const invalid = product.validationErrors && Object.keys(product.validationErrors).length > 0;
     this.state = {
-      validationErrors: props.product.validationErrors || {},
-      invalid: Object.keys(props.product.validationErrors).length > 0,
+      validationErrors: this.props.product.validationErrors || {},
+      invalid: invalid,
     }
   }
 
