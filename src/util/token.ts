@@ -19,6 +19,7 @@ export interface TokenPayload {
   role: string;
   pubsub_perms: PubsubPerms;
 }
+
 export function generateOpaqueID(): string{
   let id = '';
   for (let i = 0; i < idLength; i++) {
