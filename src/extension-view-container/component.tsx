@@ -18,11 +18,11 @@ export interface ExtensionViewContainerProps {
 type Props = ExtensionViewContainerProps;
 
 export class ExtensionViewContainer extends React.Component<Props> {
-  openExtensionViewDialog = () => {
+  private openExtensionViewDialog = () => {
     this.props.openExtensionViewHandler();
   }
 
-  render() {
+  public render() {
     if (this.props.mode !== ExtensionMode.Viewer) {
       return ( <ExtensionView
           id={this.props.mode}

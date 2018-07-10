@@ -51,7 +51,7 @@ export class ExtensionComponentView extends React.Component<Props> {
     return viewStyles;
   }
 
-  render() {
+  public render() {
     return (
       <div
         className="view component-view"

@@ -40,19 +40,19 @@ export class ExtensionView extends React.Component<ExtensionViewProps, State> {
     mousedOver: false,
   };
 
-  mouseEnter() {
+  private mouseEnter() {
     this.setState({
       mousedOver: true,
     });
   }
 
-  mouseLeave() {
+  private mouseLeave() {
     this.setState({
       mousedOver: false
     });
   }
 
-  renderView(extensionProps: ExtensionProps) {
+  public renderView(extensionProps: ExtensionProps) {
     let view = null;
     switch (this.props.type) {
       case ExtensionAnchor.Component:
@@ -94,15 +94,15 @@ export class ExtensionView extends React.Component<ExtensionViewProps, State> {
     return view;
   }
 
-  renderLinkedOrUnlinked() {
+  private renderLinkedOrUnlinked() {
     return this.props.linked ? IdentityOptions.Linked : IdentityOptions.Unlinked;
   }
 
-  _isEditable() {
+  private isEditable() {
     return this.props.type === ExtensionAnchor.Component || this.props.type === ExtensionPlatform.Mobile;
   }
 
-  render() {
+  public render() {
     let extensionProps = {
       viewStyles: {},
       viewWrapperStyles: {},
@@ -161,7 +161,7 @@ export class ExtensionView extends React.Component<ExtensionViewProps, State> {
                 src={closeButton}
               />
               </div>
-              { this._isEditable() &&
+              { this.isEditable() &&
                 <div className='view__edit_button'
                 onClick={() => { this.props.openEditViewHandler(this.props.id) }}>
                 Edit

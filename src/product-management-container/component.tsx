@@ -7,7 +7,7 @@ export interface ProductManagementViewContainerProps {
 }
 
 export class ProductManagementViewContainer extends React.Component<ProductManagementViewContainerProps> {
-  render() {
+  public render() {
     return (
       <div className='product-container-wrapper'>
         <div className='product-container'>

@@ -10,7 +10,7 @@ export interface RigConfigurationsDialogProps {
 }
 
 export class RigConfigurationsDialog extends React.Component<RigConfigurationsDialogProps> {
-  render() {
+  public render() {
     if (!this.props.show) {
       return null;
     }

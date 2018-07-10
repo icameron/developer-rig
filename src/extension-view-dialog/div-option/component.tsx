@@ -10,7 +10,7 @@ export interface DivOptionProps {
   checked: boolean;
 }
 export class DivOption extends React.Component<DivOptionProps> {
-  render() {
+  public render() {
     return (
       <div className="extension-container__block">
         <label className="extension-type-label">

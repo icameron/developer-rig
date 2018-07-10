@@ -15,13 +15,13 @@ export class Console extends React.Component<{}, State> {
     logHistory: window.rig.history || []
   }
 
-  updateConsole() {
+  private updateConsole() {
     this.setState({
       logHistory: window.rig.history
     });
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     window.rig.update = () => {
       this.updateConsole();
     }
@@ -29,7 +29,7 @@ export class Console extends React.Component<{}, State> {
     this.updateConsole();
   }
 
-  render() {
+  public render() {
     const logs = this.state.logHistory.map((entry, index) => (
       <div key={index}>{entry.frame} $ {entry.log}</div>
     ));

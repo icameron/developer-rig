@@ -9,7 +9,7 @@ export interface ExtensionViewButtonProps {
 
 type Props = ExtensionViewButtonProps;
 export class ExtensionViewButton extends React.Component<Props> {
-  render() {
+  public render() {
     return (
       <div className='button-wrapper'>
         <img alt='line' className='background' src={line} />

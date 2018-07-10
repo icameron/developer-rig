@@ -54,14 +54,14 @@ export class ExtensionViewDialog extends React.Component<ExtensionViewDialogProp
     this.defaultState = this.state;
   }
 
-  public onChange (input: React.FormEvent<HTMLInputElement>) {
+  public onChange = (input: React.FormEvent<HTMLInputElement>) => {
     this.setState({
       [input.currentTarget.name]: input.currentTarget.value,
     });
   }
 
   componentWillMount() {
-    const allowedAnchors = this._getSupportedViews();
+    const allowedAnchors = this.getSupportedViews();
     if (allowedAnchors.length > 0) {
       this.setState({
         extensionViewType: allowedAnchors[0],
@@ -69,8 +69,8 @@ export class ExtensionViewDialog extends React.Component<ExtensionViewDialogProp
     }
   }
 
-  renderExtensionTypeComponents() {
-    const allowedAnchors = this._getSupportedViews();
+  private renderExtensionTypeComponents() {
+    const allowedAnchors = this.getSupportedViews();
     const onlyOneOption = allowedAnchors.length === 1;
     return allowedAnchors.map((key: string) => {
       return <DivOption
@@ -83,37 +83,37 @@ export class ExtensionViewDialog extends React.Component<ExtensionViewDialogProp
     });
   }
 
-  renderFrameSizeComponents() {
+  private renderFrameSizeComponents() {
     return Object.keys(OverlaySizes).map(key => {
       return <RadioOption key={key} name="frameSize" value={key} onChange={this.onChange} checked={key === this.state.frameSize}/>
     });
   }
 
-  renderMobileFrameSizeComponents() {
+  private renderMobileFrameSizeComponents() {
     return Object.keys(MobileSizes).map(key => {
       return <RadioOption key={key} name="frameSize" value={key} onChange={this.onChange} checked={key === this.state.frameSize}/>
     });
   }
 
-  renderViewerTypeComponents() {
+  private renderViewerTypeComponents() {
     return Object.keys(ViewerTypes).map(key => {
       return <RadioOption key={key} name="viewerType" value={ViewerTypes[key]} onChange={this.onChange} checked={ViewerTypes[key] === this.state.viewerType}/>
     });
   }
 
-  renderIdentityOptionComponents() {
+  private renderIdentityOptionComponents() {
     return Object.keys(IdentityOptions).map(option => {
       return <RadioOption key={option} name="identityOption" value={option} onChange={this.onChange} checked={option === this.state.identityOption}/>
     });
   }
 
-  renderOrientationComponents() {
+  private renderOrientationComponents() {
     return Object.keys(MobileOrientation).map(option => {
       return <RadioOption key={option} name="orientation" value={MobileOrientation[option]} onChange={this.onChange} checked={option === this.state.orientation}/>
     });
   }
 
-  close = () => {
+  private close = () => {
     this.setState(this.defaultState);
     this.props.closeHandler();
   }
@@ -122,7 +122,7 @@ export class ExtensionViewDialog extends React.Component<ExtensionViewDialogProp
     this.props.saveHandler();
   }
 
-  render() {
+  public render() {
     if (!this.props.show) {
       return null;
     }
@@ -287,7 +287,7 @@ export class ExtensionViewDialog extends React.Component<ExtensionViewDialogProp
     );
   }
 
-  _getSupportedViews() {
+  private getSupportedViews() {
     return Object.keys(ExtensionAnchors).filter(anchorS => {
       const anchorC = anchorS.replace(/_\w/g, (m) => m[1].toUpperCase());
       return (this.props.extensionViews as { [key: string]: string })[anchorC];

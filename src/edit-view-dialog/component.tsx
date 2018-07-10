@@ -68,7 +68,7 @@ export class EditViewDialog extends React.Component<Props, State> {
     });
   }
 
-  editClassFromType() {
+  private editClassFromType() {
     let editClass;
     switch (this.state.type) {
       case ExtensionViewType.Component:
@@ -83,7 +83,7 @@ export class EditViewDialog extends React.Component<Props, State> {
     return editClass;
   }
 
-  render() {
+  public render() {
     if (!this.props.show) {
       return null;
     }

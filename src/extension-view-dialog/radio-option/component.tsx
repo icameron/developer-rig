@@ -9,7 +9,7 @@ export interface RadioOptionProps {
 }
 type Props = RadioOptionProps & React.HTMLAttributes<HTMLInputElement>
 export class RadioOption extends React.Component<Props> {
-  render() {
+  public render() {
     return (
       <div className='option-div'>
         <label className="option-label">

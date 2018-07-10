@@ -19,7 +19,7 @@ export interface ExtensionMobileViewProps {
 type Props = ExtensionMobileViewProps & React.HTMLAttributes<HTMLDivElement>;
 
 export class ExtensionMobileView extends React.Component<Props> {
-  computeFrameStyles(): ViewStyles {
+  public computeFrameStyles(): ViewStyles {
     let frameStyles: ViewStyles;
 
     if (this.props.orientation === MobileOrientation.Portrait) {
@@ -42,7 +42,7 @@ export class ExtensionMobileView extends React.Component<Props> {
     return frameStyles;
   }
 
-  computeViewStyles() {
+  public computeViewStyles() {
     let viewStyles: ViewStyles;
     if (this.props.orientation === MobileOrientation.Portrait) {
       viewStyles = {
@@ -59,7 +59,7 @@ export class ExtensionMobileView extends React.Component<Props> {
     viewStyles.background = ViewBackgroundColor;
     return viewStyles;
   }
-  render() {
+  public render() {
     return (
       <div
         className="view component-view"
