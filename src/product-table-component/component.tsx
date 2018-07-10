@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ProductRow } from './components/product-row/component';
+import { ProductRow } from './product-row';
 import { fetchProducts, saveProduct } from '../util/api';
 import * as ProductErrors from '../constants/product-errors';
 import './component.sass';
@@ -50,12 +50,12 @@ export class ProductTableComponent extends React.Component<Props>{
     changeProductValue(index, 'deprecated', !deprecated);
   }
 
-  handleAddProductClick() {
+  public handleAddProductClick() {
     const { addProduct } = this.props;
     addProduct();
   }
 
-  handleSaveProductsClick() {
+  public handleSaveProductsClick() {
     const { clientId, token, saveProductsSuccess, saveProductsFailure } = this.props;
     this.props.products.forEach((product, index) => {
       if (product.dirty) {
