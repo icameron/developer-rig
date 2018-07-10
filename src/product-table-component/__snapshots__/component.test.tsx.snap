@@ -1471,7 +1471,7 @@ ShallowWrapper {
                               className="dirty-col"
                     />
           </div>
-          <ProductRow
+          <Unknown
                     handleDeprecateClick={[Function]}
                     handleValueChange={[Function]}
                     product={
@@ -1488,7 +1488,7 @@ ShallowWrapper {
                                       }
                     }
           />
-          <ProductRow
+          <Unknown
                     handleDeprecateClick={[Function]}
                     handleValueChange={[Function]}
                     product={
@@ -1603,7 +1603,7 @@ ShallowWrapper {
               />
 </div>,
             Array [
-              <ProductRow
+              <Unknown
                 handleDeprecateClick={[Function]}
                 handleValueChange={[Function]}
                 product={
@@ -1620,7 +1620,7 @@ ShallowWrapper {
                                               }
                 }
 />,
-              <ProductRow
+              <Unknown
                 handleDeprecateClick={[Function]}
                 handleValueChange={[Function]}
                 product={
@@ -1914,7 +1914,7 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": "0",
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {
               "handleDeprecateClick": [Function],
               "handleValueChange": [Function],
@@ -1937,7 +1937,7 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": "1",
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {
               "handleDeprecateClick": [Function],
               "handleValueChange": [Function],
@@ -2094,7 +2094,7 @@ ShallowWrapper {
                                     className="dirty-col"
                         />
             </div>
-            <ProductRow
+            <Unknown
                         handleDeprecateClick={[Function]}
                         handleValueChange={[Function]}
                         product={
@@ -2111,7 +2111,7 @@ ShallowWrapper {
                                               }
                         }
             />
-            <ProductRow
+            <Unknown
                         handleDeprecateClick={[Function]}
                         handleValueChange={[Function]}
                         product={
@@ -2226,7 +2226,7 @@ ShallowWrapper {
                 />
 </div>,
               Array [
-                <ProductRow
+                <Unknown
                   handleDeprecateClick={[Function]}
                   handleValueChange={[Function]}
                   product={
@@ -2243,7 +2243,7 @@ ShallowWrapper {
                                                     }
                   }
 />,
-                <ProductRow
+                <Unknown
                   handleDeprecateClick={[Function]}
                   handleValueChange={[Function]}
                   product={
@@ -2537,7 +2537,7 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": "0",
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
                 "handleDeprecateClick": [Function],
                 "handleValueChange": [Function],
@@ -2560,7 +2560,7 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": "1",
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
                 "handleDeprecateClick": [Function],
                 "handleValueChange": [Function],

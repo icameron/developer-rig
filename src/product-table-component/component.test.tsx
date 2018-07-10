@@ -88,7 +88,7 @@ describe('<ProductTableComponent />', () => {
 });
 
 describe('<ProductRow />', () => {
-  const setupShallow = setupShallowTest(ProductRow, () => ({
+  const setupShallow = setupShallowTest((ProductRow as any), () => ({
     product: TestData.TestProduct1
   }));
 
