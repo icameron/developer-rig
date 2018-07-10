@@ -9,7 +9,7 @@ export const MobileOrientation: Orientation = {
 
 export const DefaultMobileOrientation = MobileOrientation.Portrait;
 
-export const MobileSizes = Object.freeze({
+export const MobileSizes: { [key: string]: { width: number; height: number;} } = Object.freeze({
   'iPhone X (375x822)': {
     width: 375,
     height: 822

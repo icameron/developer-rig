@@ -11,7 +11,6 @@ export interface PublicProps {
   openProductManagementHandler: Function,
   openConfigurationsHandler: Function,
   viewerHandler: Function,
-  loginHandler: Function,
   configHandler: Function,
   liveConfigHandler: Function,
   selectedView: string,

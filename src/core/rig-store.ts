@@ -1,12 +1,10 @@
 import { Action, AsyncAction } from './models/actions';
 import { GlobalState } from './models/global-state';
 import { applyMiddleware, createStore, Reducer, combineReducers, Store as ReduxStore } from 'redux';
-import { SessionState, sessionReducer } from './state/session';
-import { ExtensionsState, extensionsReducer } from './state/extensions';
-import { ProductState, productsReducer } from './state/products';
+import { sessionReducer } from './state/session';
+import { extensionsReducer } from './state/extensions';
+import { productsReducer } from './state/products';
 import thunk from 'redux-thunk';
-
-declare const window: Window;
 
 interface RigState {
   [key: string]: object;

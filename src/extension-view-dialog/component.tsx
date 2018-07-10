@@ -9,12 +9,11 @@ import { RadioOption } from './radio-option';
 import { DivOption } from './div-option';
 import * as closeButton from '../img/close_icon.png';
 import { MobileOrientation, DefaultMobileOrientation, MobileSizes } from '../constants/mobile';
-import { RigExtensionView } from '../core/models/rig';
-import { ExtensionViews } from '../types/extension-coordinator';
+import { ManifestViews } from '../core/models/manifest';
 const { ExtensionAnchor, ExtensionPlatform } = window['extension-coordinator'];
 
 export interface ExtensionViewDialogProps {
-  extensionViews: ExtensionViews,
+  extensionViews: ManifestViews,
   closeHandler: Function,
   saveHandler: Function,
   show?: boolean,

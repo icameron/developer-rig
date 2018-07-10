@@ -3,8 +3,7 @@ import { ExtensionView } from '../extension-view';
 import { ExtensionViewButton } from '../extension-view-button';
 import { EXTENSION_MODE_TO_VIEW } from '../constants/extension-modes'
 import './component.sass';
-import { RigExtensionView } from '../core/models/rig';
-import { Extension } from '../core/models/extension';
+import { RigExtensionView, RigExtension } from '../core/models/rig';
 const { ExtensionMode } = window['extension-coordinator'];
 
 export interface ExtensionViewContainerProps {
@@ -13,7 +12,7 @@ export interface ExtensionViewContainerProps {
   openEditViewHandler?: (id: string) => void;
   deleteExtensionViewHandler: (id: string) => void;
   openExtensionViewHandler: Function;
-  extension: Extension;
+  extension: RigExtension;
 }
 
 export class ExtensionViewContainer extends React.Component<ExtensionViewContainerProps> {

@@ -1,4 +1,4 @@
-export const OverlaySizes = Object.freeze({
+export const OverlaySizes: { [key: string]: { width: number; height: number;} } = Object.freeze({
   '640x480': {
     width: 640,
     height: 480

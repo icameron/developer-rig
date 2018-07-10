@@ -1,5 +1,6 @@
 import { MobileOrientation } from '../../constants/mobile';
 import { ExtensionManifest } from '../../core/models/manifest';
+import { RigExtensionView } from '../../core/models/rig';
 
 export const ManifestForTest: ExtensionManifest = {
   anchor: 'panel',
@@ -81,7 +82,7 @@ export const ExtensionForTest = {
   channelId: 'channelId',
 };
 
-export function createViewsForTest(numOfViews: number, type: string, role: string, extras?: any) {
+export function createViewsForTest(numOfViews: number, type: string, role: string, extras?: any): RigExtensionView[] {
   let ex = {
     x: 0,
     y: 0,
