@@ -3,17 +3,17 @@ import { PositionProperty } from 'csstype';
 import { ManifestViews } from './manifest';
 
 export interface RigExtensionView {
-  x?: number;
-  y?: number;
-  orientation?: string;
-  id?: string;
-  extension?: RigExtension;
-  type?: string;
-  mode?: string;
-  role?: string;
-  linked?: boolean;
-  deleteViewHandler?: (id: string) => void;
-  openEditViewHandler?: (id: string) => void;
+  x: number;
+  y: number;
+  orientation: string;
+  id: string;
+  extension: RigExtension;
+  type: string;
+  mode: string;
+  role: string;
+  linked: boolean;
+  deleteViewHandler: (id: string) => void;
+  openEditViewHandler: (id: string) => void;
   position?: Position;
   frameSize?: FrameSize;
 }

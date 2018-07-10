@@ -1,10 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Rig /> renders correctly 1`] = `
+exports[`<RigComponent /> renders correctly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Rig />,
+  Symbol(enzyme.__unrendered__): <RigComponent
+    saveManifest={[Function]}
+    userLogin={[Function]}
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -17,150 +20,17 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <div>
+      "children": Array [
         <Connect(RigNavComponent)
-                configHandler={[Function]}
-                error=""
-                liveConfigHandler={[Function]}
-                openConfigurationsHandler={[Function]}
-                openProductManagementHandler={[Function]}
-                selectedView="Extension Views"
-                viewerHandler={[Function]}
-        />
-        <ExtensionViewContainer
-                deleteExtensionViewHandler={[Function]}
-                extension={Object {}}
-                extensionViews={Array []}
-                mode="viewer"
-                openEditViewHandler={[Function]}
-                openExtensionViewHandler={[Function]}
-        />
-        <RigConfigurationsDialog
-                closeConfigurationsHandler={[Function]}
-                config={Object {}}
-                refreshConfigurationsHandler={[Function]}
-                show={false}
-        />
-        <Console />
-</div>,
-      "className": "rig-container",
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <Connect(RigNavComponent)
-            configHandler={[Function]}
-            error=""
-            liveConfigHandler={[Function]}
-            openConfigurationsHandler={[Function]}
-            openProductManagementHandler={[Function]}
-            selectedView="Extension Views"
-            viewerHandler={[Function]}
+          configHandler={[Function]}
+          error=""
+          liveConfigHandler={[Function]}
+          openConfigurationsHandler={[Function]}
+          openProductManagementHandler={[Function]}
+          selectedView="Extension Views"
+          viewerHandler={[Function]}
 />,
-          <ExtensionViewContainer
-            deleteExtensionViewHandler={[Function]}
-            extension={Object {}}
-            extensionViews={Array []}
-            mode="viewer"
-            openEditViewHandler={[Function]}
-            openExtensionViewHandler={[Function]}
-/>,
-          false,
-          false,
-          <RigConfigurationsDialog
-            closeConfigurationsHandler={[Function]}
-            config={Object {}}
-            refreshConfigurationsHandler={[Function]}
-            show={false}
-/>,
-          <Console />,
-        ],
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "configHandler": [Function],
-            "error": "",
-            "liveConfigHandler": [Function],
-            "openConfigurationsHandler": [Function],
-            "openProductManagementHandler": [Function],
-            "selectedView": "Extension Views",
-            "viewerHandler": [Function],
-          },
-          "ref": "rigNav",
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "deleteExtensionViewHandler": [Function],
-            "extension": Object {},
-            "extensionViews": Array [],
-            "mode": "viewer",
-            "openEditViewHandler": [Function],
-            "openExtensionViewHandler": [Function],
-          },
-          "ref": "extensionViewContainer",
-          "rendered": null,
-          "type": [Function],
-        },
-        false,
-        false,
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "closeConfigurationsHandler": [Function],
-            "config": Object {},
-            "refreshConfigurationsHandler": [Function],
-            "show": false,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-      ],
-      "type": "div",
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <div>
-          <Connect(RigNavComponent)
-                    configHandler={[Function]}
-                    error=""
-                    liveConfigHandler={[Function]}
-                    openConfigurationsHandler={[Function]}
-                    openProductManagementHandler={[Function]}
-                    selectedView="Extension Views"
-                    viewerHandler={[Function]}
-          />
+        <div>
           <ExtensionViewContainer
                     deleteExtensionViewHandler={[Function]}
                     extension={Object {}}
@@ -177,24 +47,34 @@ ShallowWrapper {
           />
           <Console />
 </div>,
-        "className": "rig-container",
+      ],
+      "className": "rig-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "configHandler": [Function],
+          "error": "",
+          "liveConfigHandler": [Function],
+          "openConfigurationsHandler": [Function],
+          "openProductManagementHandler": [Function],
+          "selectedView": "Extension Views",
+          "viewerHandler": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
       },
-      "ref": null,
-      "rendered": Object {
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <Connect(RigNavComponent)
-              configHandler={[Function]}
-              error=""
-              liveConfigHandler={[Function]}
-              openConfigurationsHandler={[Function]}
-              openProductManagementHandler={[Function]}
-              selectedView="Extension Views"
-              viewerHandler={[Function]}
-/>,
             <ExtensionViewContainer
               deleteExtensionViewHandler={[Function]}
               extension={Object {}}
@@ -221,23 +101,6 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "configHandler": [Function],
-              "error": "",
-              "liveConfigHandler": [Function],
-              "openConfigurationsHandler": [Function],
-              "openProductManagementHandler": [Function],
-              "selectedView": "Extension Views",
-              "viewerHandler": [Function],
-            },
-            "ref": "rigNav",
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
               "deleteExtensionViewHandler": [Function],
               "extension": Object {},
               "extensionViews": Array [],
@@ -245,7 +108,7 @@ ShallowWrapper {
               "openEditViewHandler": [Function],
               "openExtensionViewHandler": [Function],
             },
-            "ref": "extensionViewContainer",
+            "ref": null,
             "rendered": null,
             "type": [Function],
           },
@@ -277,116 +140,11 @@ ShallowWrapper {
         ],
         "type": "div",
       },
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
+    ],
+    "type": "div",
   },
-}
-`;
-
-exports[`<Rig /> renders extension view correctly 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Rig />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": <div>
-        <Connect(RigNavComponent)
-                configHandler={[Function]}
-                error=""
-                liveConfigHandler={[Function]}
-                openConfigurationsHandler={[Function]}
-                openProductManagementHandler={[Function]}
-                selectedView="Extension Views"
-                viewerHandler={[Function]}
-        />
-        <ExtensionViewContainer
-                deleteExtensionViewHandler={[Function]}
-                extension={Object {}}
-                extensionViews={
-                        Array [
-                                Object {
-                                  "extension": Object {
-                                    "authorName": "test",
-                                    "channelId": "channelId",
-                                    "description": "description",
-                                    "iconUrl": "icon_url",
-                                    "id": "id",
-                                    "name": "name",
-                                    "requestIdentityLink": false,
-                                    "sku": "sku",
-                                    "state": "state",
-                                    "summary": "summary",
-                                    "token": "token",
-                                    "vendorCode": "vendorCode",
-                                    "version": "0.1",
-                                    "views": Object {
-                                      "component": Object {
-                                        "aspectHeight": 3000,
-                                        "aspectWidth": 2500,
-                                        "viewerUrl": "test",
-                                        "zoom": false,
-                                      },
-                                      "config": Object {
-                                        "viewerUrl": "test",
-                                      },
-                                      "liveConfig": Object {
-                                        "viewerUrl": "test",
-                                      },
-                                      "panel": Object {
-                                        "viewerUrl": "test",
-                                      },
-                                    },
-                                    "whitelistedConfigUrls": Array [
-                                      "foo",
-                                    ],
-                                    "whitelistedPanelUrls": Array [
-                                      "bar",
-                                    ],
-                                  },
-                                  "id": "1",
-                                  "linked": false,
-                                  "orientation": "Portrait",
-                                  "role": "Logged-Out Viewer",
-                                  "type": "Panel",
-                                  "x": 0,
-                                  "y": 0,
-                                },
-                              ]
-                }
-                mode="viewer"
-                openEditViewHandler={[Function]}
-                openExtensionViewHandler={[Function]}
-        />
-        <RigConfigurationsDialog
-                closeConfigurationsHandler={[Function]}
-                config={Object {}}
-                refreshConfigurationsHandler={[Function]}
-                show={false}
-        />
-        <Console />
-</div>,
-      "className": "rig-container",
-    },
-    "ref": null,
-    "rendered": Object {
+  Symbol(enzyme.__nodes__): Array [
+    Object {
       "instance": null,
       "key": undefined,
       "nodeType": "host",
@@ -401,74 +159,25 @@ ShallowWrapper {
             selectedView="Extension Views"
             viewerHandler={[Function]}
 />,
-          <ExtensionViewContainer
-            deleteExtensionViewHandler={[Function]}
-            extension={Object {}}
-            extensionViews={
-                        Array [
-                                    Object {
-                                      "extension": Object {
-                                        "authorName": "test",
-                                        "channelId": "channelId",
-                                        "description": "description",
-                                        "iconUrl": "icon_url",
-                                        "id": "id",
-                                        "name": "name",
-                                        "requestIdentityLink": false,
-                                        "sku": "sku",
-                                        "state": "state",
-                                        "summary": "summary",
-                                        "token": "token",
-                                        "vendorCode": "vendorCode",
-                                        "version": "0.1",
-                                        "views": Object {
-                                          "component": Object {
-                                            "aspectHeight": 3000,
-                                            "aspectWidth": 2500,
-                                            "viewerUrl": "test",
-                                            "zoom": false,
-                                          },
-                                          "config": Object {
-                                            "viewerUrl": "test",
-                                          },
-                                          "liveConfig": Object {
-                                            "viewerUrl": "test",
-                                          },
-                                          "panel": Object {
-                                            "viewerUrl": "test",
-                                          },
-                                        },
-                                        "whitelistedConfigUrls": Array [
-                                          "foo",
-                                        ],
-                                        "whitelistedPanelUrls": Array [
-                                          "bar",
-                                        ],
-                                      },
-                                      "id": "1",
-                                      "linked": false,
-                                      "orientation": "Portrait",
-                                      "role": "Logged-Out Viewer",
-                                      "type": "Panel",
-                                      "x": 0,
-                                      "y": 0,
-                                    },
-                                  ]
-            }
-            mode="viewer"
-            openEditViewHandler={[Function]}
-            openExtensionViewHandler={[Function]}
-/>,
-          false,
-          false,
-          <RigConfigurationsDialog
-            closeConfigurationsHandler={[Function]}
-            config={Object {}}
-            refreshConfigurationsHandler={[Function]}
-            show={false}
-/>,
-          <Console />,
+          <div>
+            <ExtensionViewContainer
+                        deleteExtensionViewHandler={[Function]}
+                        extension={Object {}}
+                        extensionViews={Array []}
+                        mode="viewer"
+                        openEditViewHandler={[Function]}
+                        openExtensionViewHandler={[Function]}
+            />
+            <RigConfigurationsDialog
+                        closeConfigurationsHandler={[Function]}
+                        config={Object {}}
+                        refreshConfigurationsHandler={[Function]}
+                        show={false}
+            />
+            <Console />
+</div>,
         ],
+        "className": "rig-container",
       },
       "ref": null,
       "rendered": Array [
@@ -485,120 +194,126 @@ ShallowWrapper {
             "selectedView": "Extension Views",
             "viewerHandler": [Function],
           },
-          "ref": "rigNav",
+          "ref": null,
           "rendered": null,
           "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "host",
           "props": Object {
-            "deleteExtensionViewHandler": [Function],
-            "extension": Object {},
-            "extensionViews": Array [
-              Object {
-                "extension": Object {
-                  "authorName": "test",
-                  "channelId": "channelId",
-                  "description": "description",
-                  "iconUrl": "icon_url",
-                  "id": "id",
-                  "name": "name",
-                  "requestIdentityLink": false,
-                  "sku": "sku",
-                  "state": "state",
-                  "summary": "summary",
-                  "token": "token",
-                  "vendorCode": "vendorCode",
-                  "version": "0.1",
-                  "views": Object {
-                    "component": Object {
-                      "aspectHeight": 3000,
-                      "aspectWidth": 2500,
-                      "viewerUrl": "test",
-                      "zoom": false,
-                    },
-                    "config": Object {
-                      "viewerUrl": "test",
-                    },
-                    "liveConfig": Object {
-                      "viewerUrl": "test",
-                    },
-                    "panel": Object {
-                      "viewerUrl": "test",
-                    },
-                  },
-                  "whitelistedConfigUrls": Array [
-                    "foo",
-                  ],
-                  "whitelistedPanelUrls": Array [
-                    "bar",
-                  ],
-                },
-                "id": "1",
-                "linked": false,
-                "orientation": "Portrait",
-                "role": "Logged-Out Viewer",
-                "type": "Panel",
-                "x": 0,
-                "y": 0,
-              },
+            "children": Array [
+              <ExtensionViewContainer
+                deleteExtensionViewHandler={[Function]}
+                extension={Object {}}
+                extensionViews={Array []}
+                mode="viewer"
+                openEditViewHandler={[Function]}
+                openExtensionViewHandler={[Function]}
+/>,
+              false,
+              false,
+              <RigConfigurationsDialog
+                closeConfigurationsHandler={[Function]}
+                config={Object {}}
+                refreshConfigurationsHandler={[Function]}
+                show={false}
+/>,
+              <Console />,
             ],
-            "mode": "viewer",
-            "openEditViewHandler": [Function],
-            "openExtensionViewHandler": [Function],
-          },
-          "ref": "extensionViewContainer",
-          "rendered": null,
-          "type": [Function],
-        },
-        false,
-        false,
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "closeConfigurationsHandler": [Function],
-            "config": Object {},
-            "refreshConfigurationsHandler": [Function],
-            "show": false,
           },
           "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "deleteExtensionViewHandler": [Function],
+                "extension": Object {},
+                "extensionViews": Array [],
+                "mode": "viewer",
+                "openEditViewHandler": [Function],
+                "openExtensionViewHandler": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            false,
+            false,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "closeConfigurationsHandler": [Function],
+                "config": Object {},
+                "refreshConfigurationsHandler": [Function],
+                "show": false,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
         },
       ],
       "type": "div",
     },
-    "type": "div",
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
   },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <div>
-          <Connect(RigNavComponent)
-                    configHandler={[Function]}
-                    error=""
-                    liveConfigHandler={[Function]}
-                    openConfigurationsHandler={[Function]}
-                    openProductManagementHandler={[Function]}
-                    selectedView="Extension Views"
-                    viewerHandler={[Function]}
-          />
+}
+`;
+
+exports[`<RigComponent /> renders extension view correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <RigComponent
+    saveManifest={[Function]}
+    userLogin={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Connect(RigNavComponent)
+          configHandler={[Function]}
+          error=""
+          liveConfigHandler={[Function]}
+          openConfigurationsHandler={[Function]}
+          openProductManagementHandler={[Function]}
+          selectedView="Extension Views"
+          viewerHandler={[Function]}
+/>,
+        <div>
           <ExtensionViewContainer
                     deleteExtensionViewHandler={[Function]}
                     extension={Object {}}
@@ -645,6 +360,7 @@ ShallowWrapper {
                                           },
                                           "id": "1",
                                           "linked": false,
+                                          "mode": "viewer",
                                           "orientation": "Portrait",
                                           "role": "Logged-Out Viewer",
                                           "type": "Panel",
@@ -665,24 +381,34 @@ ShallowWrapper {
           />
           <Console />
 </div>,
-        "className": "rig-container",
+      ],
+      "className": "rig-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "configHandler": [Function],
+          "error": "",
+          "liveConfigHandler": [Function],
+          "openConfigurationsHandler": [Function],
+          "openProductManagementHandler": [Function],
+          "selectedView": "Extension Views",
+          "viewerHandler": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
       },
-      "ref": null,
-      "rendered": Object {
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <Connect(RigNavComponent)
-              configHandler={[Function]}
-              error=""
-              liveConfigHandler={[Function]}
-              openConfigurationsHandler={[Function]}
-              openProductManagementHandler={[Function]}
-              selectedView="Extension Views"
-              viewerHandler={[Function]}
-/>,
             <ExtensionViewContainer
               deleteExtensionViewHandler={[Function]}
               extension={Object {}}
@@ -729,6 +455,7 @@ ShallowWrapper {
                                             },
                                             "id": "1",
                                             "linked": false,
+                                            "mode": "viewer",
                                             "orientation": "Portrait",
                                             "role": "Logged-Out Viewer",
                                             "type": "Panel",
@@ -754,23 +481,6 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "configHandler": [Function],
-              "error": "",
-              "liveConfigHandler": [Function],
-              "openConfigurationsHandler": [Function],
-              "openProductManagementHandler": [Function],
-              "selectedView": "Extension Views",
-              "viewerHandler": [Function],
-            },
-            "ref": "rigNav",
-            "rendered": null,
-            "type": [Function],
-          },
           Object {
             "instance": null,
             "key": undefined,
@@ -820,6 +530,7 @@ ShallowWrapper {
                   },
                   "id": "1",
                   "linked": false,
+                  "mode": "viewer",
                   "orientation": "Portrait",
                   "role": "Logged-Out Viewer",
                   "type": "Panel",
@@ -831,7 +542,7 @@ ShallowWrapper {
               "openEditViewHandler": [Function],
               "openExtensionViewHandler": [Function],
             },
-            "ref": "extensionViewContainer",
+            "ref": null,
             "rendered": null,
             "type": [Function],
           },
@@ -863,6 +574,287 @@ ShallowWrapper {
         ],
         "type": "div",
       },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Connect(RigNavComponent)
+            configHandler={[Function]}
+            error=""
+            liveConfigHandler={[Function]}
+            openConfigurationsHandler={[Function]}
+            openProductManagementHandler={[Function]}
+            selectedView="Extension Views"
+            viewerHandler={[Function]}
+/>,
+          <div>
+            <ExtensionViewContainer
+                        deleteExtensionViewHandler={[Function]}
+                        extension={Object {}}
+                        extensionViews={
+                                    Array [
+                                                Object {
+                                                  "extension": Object {
+                                                    "authorName": "test",
+                                                    "channelId": "channelId",
+                                                    "description": "description",
+                                                    "iconUrl": "icon_url",
+                                                    "id": "id",
+                                                    "name": "name",
+                                                    "requestIdentityLink": false,
+                                                    "sku": "sku",
+                                                    "state": "state",
+                                                    "summary": "summary",
+                                                    "token": "token",
+                                                    "vendorCode": "vendorCode",
+                                                    "version": "0.1",
+                                                    "views": Object {
+                                                      "component": Object {
+                                                        "aspectHeight": 3000,
+                                                        "aspectWidth": 2500,
+                                                        "viewerUrl": "test",
+                                                        "zoom": false,
+                                                      },
+                                                      "config": Object {
+                                                        "viewerUrl": "test",
+                                                      },
+                                                      "liveConfig": Object {
+                                                        "viewerUrl": "test",
+                                                      },
+                                                      "panel": Object {
+                                                        "viewerUrl": "test",
+                                                      },
+                                                    },
+                                                    "whitelistedConfigUrls": Array [
+                                                      "foo",
+                                                    ],
+                                                    "whitelistedPanelUrls": Array [
+                                                      "bar",
+                                                    ],
+                                                  },
+                                                  "id": "1",
+                                                  "linked": false,
+                                                  "mode": "viewer",
+                                                  "orientation": "Portrait",
+                                                  "role": "Logged-Out Viewer",
+                                                  "type": "Panel",
+                                                  "x": 0,
+                                                  "y": 0,
+                                                },
+                                              ]
+                        }
+                        mode="viewer"
+                        openEditViewHandler={[Function]}
+                        openExtensionViewHandler={[Function]}
+            />
+            <RigConfigurationsDialog
+                        closeConfigurationsHandler={[Function]}
+                        config={Object {}}
+                        refreshConfigurationsHandler={[Function]}
+                        show={false}
+            />
+            <Console />
+</div>,
+        ],
+        "className": "rig-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "configHandler": [Function],
+            "error": "",
+            "liveConfigHandler": [Function],
+            "openConfigurationsHandler": [Function],
+            "openProductManagementHandler": [Function],
+            "selectedView": "Extension Views",
+            "viewerHandler": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <ExtensionViewContainer
+                deleteExtensionViewHandler={[Function]}
+                extension={Object {}}
+                extensionViews={
+                                Array [
+                                                Object {
+                                                  "extension": Object {
+                                                    "authorName": "test",
+                                                    "channelId": "channelId",
+                                                    "description": "description",
+                                                    "iconUrl": "icon_url",
+                                                    "id": "id",
+                                                    "name": "name",
+                                                    "requestIdentityLink": false,
+                                                    "sku": "sku",
+                                                    "state": "state",
+                                                    "summary": "summary",
+                                                    "token": "token",
+                                                    "vendorCode": "vendorCode",
+                                                    "version": "0.1",
+                                                    "views": Object {
+                                                      "component": Object {
+                                                        "aspectHeight": 3000,
+                                                        "aspectWidth": 2500,
+                                                        "viewerUrl": "test",
+                                                        "zoom": false,
+                                                      },
+                                                      "config": Object {
+                                                        "viewerUrl": "test",
+                                                      },
+                                                      "liveConfig": Object {
+                                                        "viewerUrl": "test",
+                                                      },
+                                                      "panel": Object {
+                                                        "viewerUrl": "test",
+                                                      },
+                                                    },
+                                                    "whitelistedConfigUrls": Array [
+                                                      "foo",
+                                                    ],
+                                                    "whitelistedPanelUrls": Array [
+                                                      "bar",
+                                                    ],
+                                                  },
+                                                  "id": "1",
+                                                  "linked": false,
+                                                  "mode": "viewer",
+                                                  "orientation": "Portrait",
+                                                  "role": "Logged-Out Viewer",
+                                                  "type": "Panel",
+                                                  "x": 0,
+                                                  "y": 0,
+                                                },
+                                              ]
+                }
+                mode="viewer"
+                openEditViewHandler={[Function]}
+                openExtensionViewHandler={[Function]}
+/>,
+              false,
+              false,
+              <RigConfigurationsDialog
+                closeConfigurationsHandler={[Function]}
+                config={Object {}}
+                refreshConfigurationsHandler={[Function]}
+                show={false}
+/>,
+              <Console />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "deleteExtensionViewHandler": [Function],
+                "extension": Object {},
+                "extensionViews": Array [
+                  Object {
+                    "extension": Object {
+                      "authorName": "test",
+                      "channelId": "channelId",
+                      "description": "description",
+                      "iconUrl": "icon_url",
+                      "id": "id",
+                      "name": "name",
+                      "requestIdentityLink": false,
+                      "sku": "sku",
+                      "state": "state",
+                      "summary": "summary",
+                      "token": "token",
+                      "vendorCode": "vendorCode",
+                      "version": "0.1",
+                      "views": Object {
+                        "component": Object {
+                          "aspectHeight": 3000,
+                          "aspectWidth": 2500,
+                          "viewerUrl": "test",
+                          "zoom": false,
+                        },
+                        "config": Object {
+                          "viewerUrl": "test",
+                        },
+                        "liveConfig": Object {
+                          "viewerUrl": "test",
+                        },
+                        "panel": Object {
+                          "viewerUrl": "test",
+                        },
+                      },
+                      "whitelistedConfigUrls": Array [
+                        "foo",
+                      ],
+                      "whitelistedPanelUrls": Array [
+                        "bar",
+                      ],
+                    },
+                    "id": "1",
+                    "linked": false,
+                    "mode": "viewer",
+                    "orientation": "Portrait",
+                    "role": "Logged-Out Viewer",
+                    "type": "Panel",
+                    "x": 0,
+                    "y": 0,
+                  },
+                ],
+                "mode": "viewer",
+                "openEditViewHandler": [Function],
+                "openExtensionViewHandler": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            false,
+            false,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "closeConfigurationsHandler": [Function],
+                "config": Object {},
+                "refreshConfigurationsHandler": [Function],
+                "show": false,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
       "type": "div",
     },
   ],

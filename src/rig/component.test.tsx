@@ -2,21 +2,25 @@ import { setupShallowTest } from '../tests/enzyme-util/shallow';
 import { createViewsForTest, ExtensionForTest } from '../tests/constants/extension';
 import { mockFetchForManifest, mockFetchForUserInfo } from '../tests/mocks';
 import { EXTENSION_VIEWS, BROADCASTER_CONFIG, LIVE_CONFIG } from '../constants/nav-items';
-import { Rig } from './component';
+import { RigComponent } from './component';
 import { ExtensionAnchors } from '../constants/extension-types';
 import { ViewerTypes } from '../constants/viewer-types';
-import { ExtensionViewContainer } from '../extension-view-container';
 import { RigExtensionView } from '../core/models/rig';
 const { ExtensionMode, ExtensionAnchor, ExtensionViewType } = window['extension-coordinator'];
 
 let globalAny = global as any;
 
-describe('<Rig />', () => {
-  const setupShallow = setupShallowTest(Rig, () => { });
+describe('<RigComponent />', () => {
+  const setupShallow = setupShallowTest(RigComponent, () => ({
+    saveManifest: jest.fn(),
+    userLogin: jest.fn()
+  }));
+
   function setupViewsForTest(numViews: number) {
     const testViews = createViewsForTest(numViews, ExtensionAnchors[ExtensionAnchor.Panel], ViewerTypes.LoggedOut);
     localStorage.setItem('extensionViews', JSON.stringify(testViews));
   };
+
   function setupComponentViewsForTest(numViews: number) {
     const testViews = createViewsForTest(numViews, ExtensionAnchors[ExtensionAnchor.Component], ViewerTypes.LoggedOut);
     localStorage.setItem('extensionViews', JSON.stringify(testViews));
@@ -42,7 +46,7 @@ describe('<Rig />', () => {
 
   it('gets extension views from local storage correctly when not in local storage', () => {
     const { wrapper } = setupShallow();
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
     expect(instance.getExtensionViews()).toEqual([]);
   });
 
@@ -57,14 +61,14 @@ describe('<Rig />', () => {
     setupViewsForTest(1);
     const testViews = createViewsForTest(1, ExtensionAnchors[ExtensionAnchor.Panel], ViewerTypes.LoggedOut);
     const { wrapper } = setupShallow();
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
     expect(instance.getExtensionViews()).toEqual(testViews);
   });
 
   it('deletes extension view correctly', () => {
     setupViewsForTest(1);
     const { wrapper } = setupShallow();
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
     expect((wrapper.find('ExtensionViewContainer') as any).props().extensionViews).toHaveLength(1);
 
     instance.deleteExtensionView('1');
@@ -75,7 +79,7 @@ describe('<Rig />', () => {
   it('toggles state when edit dialog is opened/closed', () => {
     setupComponentViewsForTest(1);
     const { wrapper } = setupShallow();
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
 
     instance.openEditViewHandler('1');
     expect(instance.state.showEditView).toBe(true);
@@ -89,7 +93,7 @@ describe('<Rig />', () => {
   it('edit changes the view and sets them correctly', () => {
     setupComponentViewsForTest(1);
     const { wrapper } = setupShallow();
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
 
     instance.openEditViewHandler('1');
     expect(instance.state.showEditView).toBe(true);
@@ -108,7 +112,7 @@ describe('<Rig />', () => {
   it('correctly toggles state when configuration dialog is opened/closed', () => {
     setupViewsForTest(1);
     const { wrapper } = setupShallow();
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
 
     instance.openConfigurationsHandler();
     expect(instance.state.showConfigurations).toBe(true);
@@ -124,7 +128,7 @@ describe('<Rig />', () => {
     wrapper.setState({
       manifest: ExtensionForTest,
     })
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
     instance.openExtensionViewHandler();
     expect(instance.state.showExtensionsView).toBe(true);
 
@@ -136,7 +140,7 @@ describe('<Rig />', () => {
   it('correctly sets state when viewHandler is invoked', () => {
     setupViewsForTest(1);
     const { wrapper } = setupShallow();
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
 
     instance.viewerHandler();
     expect(instance.state.mode).toBe(ExtensionMode.Viewer);
@@ -148,7 +152,7 @@ describe('<Rig />', () => {
   it('correctly sets state when configHandler is invoked', () => {
     setupViewsForTest(1);
     const { wrapper } = setupShallow();
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
 
     instance.configHandler();
     expect(instance.state.mode).toBe(ExtensionMode.Config);
@@ -158,7 +162,7 @@ describe('<Rig />', () => {
   it('correctly sets state when liveConfigHandler is invoked', () => {
     setupViewsForTest(1);
     const { wrapper } = setupShallow();
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
 
     instance.liveConfigHandler();
     expect(instance.state.mode).toBe(ExtensionMode.Dashboard);
@@ -169,21 +173,21 @@ describe('<Rig />', () => {
     const testViews = createViewsForTest(1, ExtensionAnchors[ExtensionAnchor.Panel], ViewerTypes.LoggedOut);
     setupViewsForTest(1);
     const { wrapper } = setupShallow();
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
 
     expect(instance.state.extensionViews).toEqual(testViews);
   });
 
-  it('sets views in local storage correctly when _pushExtensionViews invoked', () => {
+  it('sets views in local storage correctly when pushExtensionViews invoked', () => {
     const testViews = createViewsForTest(1, ExtensionAnchors[ExtensionAnchor.Panel], ViewerTypes.LoggedOut);
     setupViewsForTest(1);
     const { wrapper } = setupShallow();
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
 
     expect(instance.state.extensionViews).toEqual(testViews);
 
-    instance.state.extensionViews.push(createViewsForTest(1,ExtensionAnchors[ExtensionAnchor.Panel], ViewerTypes.LoggedOut)[0]);
-    instance._pushExtensionViews(instance.state.extensionViews);
+    instance.state.extensionViews.push(createViewsForTest(1,ExtensionAnchors[ExtensionAnchor.Panel], ViewerTypes.LoggedOut)[0] as RigExtensionView);
+    instance.pushExtensionViews(instance.state.extensionViews);
   });
 
   it('sets state correctly when _onConfigurationSuccess invoked', () => {
@@ -191,18 +195,18 @@ describe('<Rig />', () => {
     const testData = {
       test: 'test'
     };
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
 
-    instance._onConfigurationSuccess(testData);
+    instance.onConfigurationSuccess(testData);
     expect(wrapper.instance().state.test).toBe(testData.test);
   });
 
   it('sets error state correctly when _onConfigurationError invoked', () => {
     const { wrapper } = setupShallow();
     const testError = 'error';
-    const instance = wrapper.instance() as Rig;
+    const instance = wrapper.instance() as RigComponent;
 
-    instance._onConfigurationError(testError);
+    instance.onConfigurationError(testError);
     expect(wrapper.instance().state.error).toBe(testError);
   });
 
@@ -221,9 +225,9 @@ describe('<Rig />', () => {
         width: 375,
         height: 822,
       };
-      const instance = wrapper.instance() as Rig;
+      const instance = wrapper.instance() as RigComponent;
 
-      let frameSize = instance._getFrameSizeFromDialog(testDialogRef);
+      let frameSize = instance.getFrameSizeFromDialog(testDialogRef);
       expect(frameSize).toEqual(expectedMobileFrameSize);
     });
 
@@ -241,8 +245,8 @@ describe('<Rig />', () => {
         width: 640,
         height: 480,
       }
-      const instance = wrapper.instance() as Rig;
-      const frameSize = instance._getFrameSizeFromDialog(overlayTestDialogRef);
+      const instance = wrapper.instance() as RigComponent;
+      const frameSize = instance.getFrameSizeFromDialog(overlayTestDialogRef);
       expect(frameSize).toEqual(expectedOverlayFrameSize);
     });
 
@@ -260,8 +264,8 @@ describe('<Rig />', () => {
         width: 100,
         height: 100,
       }
-      const instance = wrapper.instance() as Rig;
-      const frameSize = instance._getFrameSizeFromDialog(overlayTestDialogRef);
+      const instance = wrapper.instance() as RigComponent;
+      const frameSize = instance.getFrameSizeFromDialog(overlayTestDialogRef);
       expect(frameSize).toEqual(expectedOverlayFrameSize);
     });
 

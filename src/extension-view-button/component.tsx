@@ -4,7 +4,7 @@ import * as plus from '../img/plus_icon.png';
 import './component.sass'
 
 export interface ExtensionViewButtonProps {
-  onClick: Function
+  onClick: () => void;
 }
 
 type Props = ExtensionViewButtonProps;
@@ -13,7 +13,7 @@ export class ExtensionViewButton extends React.Component<Props> {
     return (
       <div className='button-wrapper'>
         <img alt='line' className='background' src={line} />
-        <div className="circle-button" onClick={() => this.props.onClick()}>
+        <div className="circle-button" onClick={this.props.onClick}>
           <img alt='Add new view' src={plus} />
         </div>
       </div>

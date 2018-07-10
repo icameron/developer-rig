@@ -4,7 +4,7 @@ import { ExtensionViewButton } from '../extension-view-button';
 import { EXTENSION_MODE_TO_VIEW } from '../constants/extension-modes'
 import './component.sass';
 import { RigExtensionView, RigExtension } from '../core/models/rig';
-const { ExtensionMode } = window['extension-coordinator'];
+  const { ExtensionMode } = window['extension-coordinator'];
 
 export interface ExtensionViewContainerProps {
   mode: string;
@@ -15,7 +15,9 @@ export interface ExtensionViewContainerProps {
   extension: RigExtension;
 }
 
-export class ExtensionViewContainer extends React.Component<ExtensionViewContainerProps> {
+type Props = ExtensionViewContainerProps;
+
+export class ExtensionViewContainer extends React.Component<Props> {
   openExtensionViewDialog = () => {
     this.props.openExtensionViewHandler();
   }

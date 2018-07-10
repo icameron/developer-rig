@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 import { UserSession } from '../core/models/user-session';
 import { fetchNewRelease } from '../util/api';
-const reddot = require('../img/reddot.svg');
+import * as reddot from '../img/reddot.svg';
 import './component.sass';
 
 export interface PublicProps {

@@ -36,13 +36,9 @@ interface ExtensionProps {
 }
 
 export class ExtensionView extends React.Component<ExtensionViewProps, State> {
-  constructor(props: ExtensionViewProps) {
-    super(props);
-
-    this.state = {
-      mousedOver: false,
-    };
-  }
+  public state: State = {
+    mousedOver: false,
+  };
 
   mouseEnter() {
     this.setState({

@@ -14,3 +14,4 @@ export declare class ExtensionCoordinator {
 }
 
 export as namespace ExtensionCoordinator;
+

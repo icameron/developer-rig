@@ -80,6 +80,7 @@
   },
   "devDependencies": {
     "@types/eventemitter2": "^4.1.0",
+    "@types/react-dom": "^16.0.6",
     "coveralls": "^3.0.0",
     "cross-env": "^5.1.4",
     "enzyme": "^3.3.0",

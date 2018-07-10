@@ -7,12 +7,18 @@ import { MobileOrientation} from '../constants/mobile';
 import { RigExtensionView } from '../core/models/rig';
 const { ExtensionViewType } = window['extension-coordinator'];
 
+export interface EditViewProps {
+  x?: number;
+  y?: number;
+  orientation?: string;
+}
+
 export interface EditViewDialogProps {
   show: boolean;
   idToEdit: string;
   views: Array<RigExtensionView>;
   closeHandler: () => void;
-  saveViewHandler: (newView: RigExtensionView) => void;
+  saveViewHandler: (newView: EditViewProps) => void;
 }
 
 interface State {
@@ -20,20 +26,16 @@ interface State {
   y?: number;
   orientation?: string;
   type?: string;
-  [key: string]: any;
 }
 
 type Props = EditViewDialogProps;
 
 export class EditViewDialog extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      x: 0,
-      y: 0,
-      orientation: DefaultMobileOrientation,
-      type: '',
-    }
+  public state: State = {
+    x: 0,
+    y: 0,
+    orientation: DefaultMobileOrientation,
+    type: '',
   }
 
   private renderOrientationComponents() {
