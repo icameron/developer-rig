@@ -22,7 +22,7 @@ process.env.NODE_ENV = 'development';
 
 // Tools like Cloud9 rely on this.
 const HOST = process.env.HOST || '0.0.0.0';
-const DEFAULT_PORT = 3000;
+const DEFAULT_PORT = process.env.PORT || 3000;
 
 // Set the extension secret as an environment variable if it was passed in via command line args
 if (cmdOptions.secret) {
